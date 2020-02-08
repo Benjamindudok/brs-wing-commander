@@ -9,7 +9,7 @@
                 @after-enter="onAfterEnter">
 
         <div id="overlay" :class="cssClasses" v-if="show">
-            <div :class="{'overlay__content': true, 'overlay__content--is-centered': contentIsCentered}">
+            <div v-bind="$attrs" :class="{'overlay__content': true, 'overlay__content--is-centered': contentIsCentered}">
 
                 <div class="overlay__container" v-if="contentIsCentered">
                     <slot></slot>

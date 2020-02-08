@@ -1,0 +1,19 @@
+@import '../../scss/_reference.scss';
+
+.button {
+    background: var(--color-grey-300);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    padding: 8px 20px;
+
+    &--primary {
+        background: var(--color-primary-500);
+        color: var(--color-grey-10);
+    }
+
+    &--block {
+        display: block;
+        width: 100%;
+    }
+}

@@ -1,7 +1,7 @@
 <template>
     <div class="squadrons">
         List of squadrons here
-        <button @click="showSquadronOverlay = true">New squadron</button>
+        <brs-button variant="primary" type="block" @click="showSquadronOverlay = true">New squadron</brs-button>
 
         <create-squadron :show="showSquadronOverlay" @close="showSquadronOverlay = false"></create-squadron>
     </div>

@@ -4,8 +4,7 @@
 
         <form>
             <fieldset class="create-squadron__name">
-                <label class="create-squadron__label">Squadron name</label>
-                <input v-model="squadron.name"/>
+                <form-input label="Squadron name" v-model="squadron.name"></form-input>
             </fieldset>
 
             <div class="create-squadron__factions">
@@ -26,7 +25,7 @@
                 </selectable-plane>
             </div>
 
-            <button type="button" @click="create">create</button>
+            <brs-button variant="primary" type="block" @click="create">create</brs-button>
         </form>
 
     </overlay>
