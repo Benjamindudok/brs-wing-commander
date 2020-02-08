@@ -6,6 +6,7 @@ import Squadron from "@/models/squadron";
 import PilotSkillLevels from "@/models/pilotSkillLevels";
 import PilotSkillPoints from "@/models/pilotSkillPoints";
 import Faction from "@/models/faction";
+import {squadronModule} from "@/store/squadron-module";
 
 @Component
 export default class SquadronView extends Vue {
@@ -58,16 +59,19 @@ export default class SquadronView extends Vue {
         return points;
     }
 
+    created(): void
+    {
+        if (squadronModule.squadron.id)
+        {
+            this.squadron = new Squadron(squadronModule.squadron);
+        }
+    }
+
     addElement(event: Event): void {
         this.squadron.elements.push(new SquadronElement());
     }
 
     removeElement(index: number) {
         this.squadron.elements.splice(index, 1);
-    }
-
-    onPlaneSelect(event: Event): void
-    {
-        this.squadron.plane = planesModule.planes.filter((p) => p.id === (event.target as HTMLInputElement).value)[0] ?? null;
     }
 }

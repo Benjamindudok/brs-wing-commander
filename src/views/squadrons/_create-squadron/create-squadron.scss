@@ -1,0 +1,26 @@
+@import '../../../scss/reference';
+
+.create-squadron {
+
+  &__label {
+    display: block;
+    font-weight: 700;
+    width: 100%;
+  }
+
+  &__name,
+  &__factions,
+  &__planes {
+    border: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 10px 20px;
+  }
+
+  &__faction,
+  &__plane {
+    display: block;
+  }
+}

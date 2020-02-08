@@ -1,0 +1,35 @@
+@import '../../scss/reference';
+
+.selectable-faction {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  height: 100px;
+  margin: 5px;
+  width: 100px;
+
+  &__input {
+    display: none;
+
+    &:checked ~ .selectable-faction__icon {
+      border-color: var(--color-primary-500);
+      color: var(--color-primary-500);
+    }
+  }
+
+  &__icon {
+    align-items: center;
+    background: var(--color-grey-10);
+    border: 2px solid var(--color-grey-200);
+    border-radius: var(--border-radius);
+    display: flex;
+    font-size: 14px;
+    font-weight: 500;
+    height: 100%;
+    justify-content: space-around;
+    padding: 20px 0;
+    pointer-events: none;
+    text-align: center;
+    width: 100%;
+  }
+}

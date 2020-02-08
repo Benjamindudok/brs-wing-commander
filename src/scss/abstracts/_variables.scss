@@ -1,0 +1,5 @@
+
+$breakpoints: ( 'small': 0, 'medium': 768px, 'large': 1024px, 'xlarge': 1200px, 'xxlarge': 1440px, );
+$transition-default-smoothing: cubic-bezier(.23, 1, .32, 1);
+$transition-default-time: .2s;
+$transition-default: all $transition-default-time $transition-default-smoothing;

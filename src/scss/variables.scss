@@ -1,41 +1,38 @@
 @import './reference';
 
 :root {
-  --color-grey-0: #ffffff;
-  --color-grey-1: #F3F3F3;
-  --color-grey-10: #DBDEDD;
-  --color-grey-100: #BEC3C2;
-  --color-grey-200: #A1A8A8;
-  --color-grey-300: #848C8D;
-  --color-grey-400: #676F72;
-  --color-grey-500: #4a5157;
-  --color-grey-600: #3E4249;
-  --color-grey-700: #32343B;
-  --color-grey-800: #26272E;
-  --color-grey-900: #1B1A20;
-  --color-grey-990: #100F12;
-  --color-grey-1000: #000000;
+  --color-grey-10: #FEFEFE;
+  --color-grey-100: #F8F8F8;
+  --color-grey-200: #F2F3F1;
+  --color-grey-300: #ECEDEB;
+  --color-grey-400: #E6E8E5;
+  --color-grey-500: #DFE2DF;
+  --color-grey-600: #B7B9B7;
+  --color-grey-700: #8F918F;
+  --color-grey-800: #676867;
+  --color-grey-900: #3E3F3F;
+  --color-grey-990: #161717;
 
-  --color-primary-10: #DBE7DD;
-  --color-primary-100: #BED3C5;
-  --color-primary-200: #A2BFB1;
-  --color-primary-300: #86AA9F;
-  --color-primary-400: #6A968F;
-  --color-primary-500: #4E8081;
-  --color-primary-600: #41656D;
-  --color-primary-700: #344C59;
-  --color-primary-800: #273544;
-  --color-primary-900: #1B2130;
-  --color-primary-990: #0F111B;
+  --color-primary-10: #DEEDCF;
+  --color-primary-100: #B8DEAA;
+  --color-primary-200: #88CE86;
+  --color-primary-300: #62BE73;
+  --color-primary-400: #3FAC6C;
+  --color-primary-500: #1D9A6C;
+  --color-primary-600: #198C75;
+  --color-primary-700: #147E7B;
+  --color-primary-800: #116270;
+  --color-primary-900: #0D4761;
+  --color-primary-990: #0A2F51;
 
-  --color-text: var(--color-primary-990);
+  --color-text: var(--color-grey-990);
   --color-text-header: var(--color-primary-990);
-  --color-text-highlight: var(--color-primary-500);
+  --color-text-highlight: var(--color-primary-800);
 
   --color-anchor: var(--color-primary-500);
   --color-anchor-active: var(--color-primary-200);
 
-  --color-border: var(--color-primary-10);
+  --color-border: var(--color-grey-300);
 
   --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-family-header: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";

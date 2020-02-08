@@ -1,0 +1,71 @@
+@import '../../scss/_reference.scss';
+
+.overlay {
+    background: var(--color-grey-100);
+    height: 100vh;
+    left: 0;
+    overflow-y: auto;
+    position: fixed;
+    padding: 0;
+    top: 0;
+    transition-duration: .4s;
+    width: 100%;
+    z-index: 100;
+
+    $overlay: &;
+
+    @include respond-to(large) {
+        @include respond-to-height(1024px) {
+            padding: 0;
+        }
+    }
+
+    &__close {
+        background: none;
+        border: none;
+        color: var(--color-primary-500);
+        cursor: pointer;
+        font-weight: 400;
+        font-size: rem-calc(32);
+        line-height: 32px;
+        padding: 8px 0 12px;
+        position: fixed;
+        right: 0;
+        text-align: center;
+        top: 0;
+        width: 50px;
+        z-index: 9001;
+
+        &:hover {
+            color: var(--color-primary-900);
+        }
+
+        &:focus, &:active {
+            outline: none;
+        }
+    }
+
+    &__content {
+        height: 100vh;
+        width: 100%;
+
+        &--is-centered {
+            @include respond-to(medium) {
+                @include center-perfectly();
+            }
+        }
+    }
+
+    &__container {
+        padding: 40px 15px;
+        width: 100%;
+
+        @include respond-to(medium) {
+            display: inline-block;
+            padding: 40px 0;
+            text-align: left;
+            vertical-align: middle;
+            width: 512px;
+        }
+    }
+}

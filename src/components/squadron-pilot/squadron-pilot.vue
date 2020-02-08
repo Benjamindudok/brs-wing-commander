@@ -1,5 +1,5 @@
 <template>
-    <div class="squadron-pilot">
+    <li class="squadron-pilot">
       <span class="squadron-pilot__level">{{pilot.skill}}</span>
       <section class="squadron-pilot__content">
         <h3 class="squadron-pilot__name">
@@ -17,7 +17,7 @@
           </li>
         </ul>
       </section>
-    </div>
+    </li>
 </template>
 
 <script lang="ts" src="./squadron-pilot.ts"></script>

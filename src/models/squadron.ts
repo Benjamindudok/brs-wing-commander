@@ -1,10 +1,9 @@
 import Plane from "@/models/plane";
 import SquadronElement from "@/models/squadronElement";
-import { uuid } from 'uuidv4';
 import Faction from "@/models/faction";
 
 export default class Squadron {
-    id: string = uuid();
+    id: string = '';
     name: string = '';
     faction: Faction = Faction.unknown;
     plane: Plane | null = null;

@@ -8,6 +8,9 @@ import Tabbar from "@/components/tabbar/tabbar.vue";
 import Navbar from "@/components/navbar/navbar.vue";
 import MaterialIcon from "@/components/material-icon/material-icon.vue";
 import CardListItem from "@/components/card-list-item/card-list-item.vue";
+import Overlay from "@/components/overlay/overlay.vue";
+import SelectableFaction from "@/components/selectable-faction/selectable-faction.vue";
+import SelectablePlane from "@/components/selectable-plane/selectable-plane.vue";
 
 Vue.config.productionTip = false;
 
@@ -17,6 +20,9 @@ Vue.component('nav-bar', Navbar);
 Vue.component('tab-bar', Tabbar);
 Vue.component('material-icon', MaterialIcon);
 Vue.component('card-list-item', CardListItem);
+Vue.component('overlay', Overlay);
+Vue.component('selectable-faction', SelectableFaction);
+Vue.component('selectable-plane', SelectablePlane);
 
 new Vue({
     router,
