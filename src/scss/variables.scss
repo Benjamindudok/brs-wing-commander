@@ -1,0 +1,44 @@
+@import './reference';
+
+:root {
+  --color-grey-0: #ffffff;
+  --color-grey-1: #F3F3F3;
+  --color-grey-10: #DBDEDD;
+  --color-grey-100: #BEC3C2;
+  --color-grey-200: #A1A8A8;
+  --color-grey-300: #848C8D;
+  --color-grey-400: #676F72;
+  --color-grey-500: #4a5157;
+  --color-grey-600: #3E4249;
+  --color-grey-700: #32343B;
+  --color-grey-800: #26272E;
+  --color-grey-900: #1B1A20;
+  --color-grey-990: #100F12;
+  --color-grey-1000: #000000;
+
+  --color-primary-10: #DBE7DD;
+  --color-primary-100: #BED3C5;
+  --color-primary-200: #A2BFB1;
+  --color-primary-300: #86AA9F;
+  --color-primary-400: #6A968F;
+  --color-primary-500: #4E8081;
+  --color-primary-600: #41656D;
+  --color-primary-700: #344C59;
+  --color-primary-800: #273544;
+  --color-primary-900: #1B2130;
+  --color-primary-990: #0F111B;
+
+  --color-text: var(--color-primary-990);
+  --color-text-header: var(--color-primary-990);
+  --color-text-highlight: var(--color-primary-500);
+
+  --color-anchor: var(--color-primary-500);
+  --color-anchor-active: var(--color-primary-200);
+
+  --color-border: var(--color-primary-10);
+
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family-header: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+  --border-radius: 8px;
+}

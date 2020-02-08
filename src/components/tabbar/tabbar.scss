@@ -1,0 +1,47 @@
+@import '../../scss/reference';
+
+.tabbar {
+  background: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  bottom: 0;
+  height: 60px;
+  left: 0;
+  position: fixed;
+  text-align: center;
+  width: 100vw;
+
+  &__list {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    flex: 1 1 auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+    margin: 0;
+    width: 100%;
+
+    &:last-child {
+      border-right: transparent;
+    }
+  }
+
+  &__link {
+    color: var(--color-grey-100);
+    display: block;
+    line-height: 60px;
+    width: 100%;
+
+    &--is-active {
+      color: var(--color-primary-500);
+    }
+  }
+}
