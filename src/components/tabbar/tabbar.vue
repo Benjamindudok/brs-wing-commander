@@ -2,7 +2,7 @@
     <nav class="tabbar">
       <ul class="tabbar__list">
         <li class="tabbar__item">
-          <router-link class="tabbar__link" active-class="tabbar__link--is-active" to="/" exact="true">
+          <router-link class="tabbar__link" active-class="tabbar__link--is-active" to="/" :exact="true">
             <material-icon icon="dashboard"></material-icon>
           </router-link>
         </li>
