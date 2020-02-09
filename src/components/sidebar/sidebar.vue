@@ -6,11 +6,6 @@
 
         <ul class="sidebar__list">
             <li class="sidebar__item">
-                <router-link class="sidebar__link" active-class="sidebar__link--is-active" to="/" :exact="true">
-                    Dashboard
-                </router-link>
-            </li>
-            <li class="sidebar__item">
                 <router-link class="sidebar__link" active-class="sidebar__link--is-active" to="/squadrons">
                     Squadrons
                 </router-link>

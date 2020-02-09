@@ -9,11 +9,6 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'dashboard',
-    component: Dashboard
-  },
-  {
     path: '/squadrons',
     name: 'squadrons',
     component: Squadrons
