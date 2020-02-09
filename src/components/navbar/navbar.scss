@@ -8,6 +8,11 @@
   justify-content: space-between;
   width: 100vw;
 
+  @include respond-to(large)
+  {
+    width: calc(100vw - 110px);
+  }
+
   &__title {
     font-size: 16px;
     line-height: 60px;

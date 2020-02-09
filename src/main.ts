@@ -14,6 +14,7 @@ import SelectableFaction from "@/components/selectable-faction/selectable-factio
 import SelectablePlane from "@/components/selectable-plane/selectable-plane.vue";
 import Button from "@/components/button/button.vue";
 import FormInput from "@/components/form-input/form-input.vue";
+import Sidebar from "@/components/sidebar/sidebar.vue";
 
 Vue.use(PortalVue);
 
@@ -30,6 +31,7 @@ Vue.component('selectable-faction', SelectableFaction);
 Vue.component('selectable-plane', SelectablePlane);
 Vue.component('brs-button', Button);
 Vue.component('form-input', FormInput);
+Vue.component('sidebar', Sidebar);
 
 new Vue({
     router,

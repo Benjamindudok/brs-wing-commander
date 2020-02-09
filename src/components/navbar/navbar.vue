@@ -6,4 +6,4 @@
 </template>
 
 <script lang="ts" src="./navbar.ts"></script>
-<style scoped lang="scss" src="./navbar.scss"></style>
+<style lang="scss" src="./navbar.scss"></style>

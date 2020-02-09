@@ -1,14 +1,20 @@
 <template>
-  <div id="app">
-    <nav-bar></nav-bar>
+  <div id="app" class="app">
+    <sidebar>
+      <h1 slot="identity" class="app__identity">Airstrip</h1>
+    </sidebar>
 
-    <router-view/>
+<!--    <nav-bar></nav-bar>-->
+
+    <div class="app__content">
+      <router-view/>
+    </div>
 
     <div class="app__actions">
       <portal-target name="application-actions"></portal-target>
     </div>
 
-    <tab-bar></tab-bar>
+<!--    <tab-bar></tab-bar>-->
   </div>
 </template>
 

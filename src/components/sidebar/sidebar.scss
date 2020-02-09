@@ -1,23 +1,13 @@
 @import '../../scss/reference';
 
-.tabbar {
-  background: white;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  bottom: 0;
-  height: 60px;
-  left: 0;
-  position: fixed;
-  text-align: center;
-  width: 100vw;
+.sidebar {
+  background: var(--color-grey-100);
+  border-right: 1px solid var(--color-border);
+  padding: 40px 50px;
+  width: 400px;
 
-  @include respond-to(large)
-  {
-    border-right: 1px solid var(--color-grey-600);
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    height: 100vh;
-    width: 60px;
+  &__identity {
+    margin-bottom: 100px;
   }
 
   &__list {
@@ -25,13 +15,10 @@
     display: flex;
     justify-content: space-between;
     flex: 1 1 auto;
+    flex-direction: column;
     list-style: none;
     margin: 0;
     padding: 0;
-
-    @include respond-to(large) {
-      flex-direction: column;
-    }
   }
 
   &__item {
@@ -48,10 +35,17 @@
   }
 
   &__link {
-    color: var(--color-grey-700);
+    color: var(--color-grey-900);
     display: block;
+    font-size: rem-calc(18);
+    font-weight: 500;
     line-height: 60px;
+    text-decoration: none;
     width: 100%;
+
+    &:visited {
+      color: var(--color-grey-900);
+    }
 
     &--is-active {
       color: var(--color-primary-200);

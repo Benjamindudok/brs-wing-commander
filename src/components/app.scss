@@ -4,6 +4,25 @@
 @import "../scss/base";
 
 .app {
+  display: flex;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 0;
+
+  @include respond-to(large)
+  {
+    padding: 0;
+  }
+
+  &__content {
+    padding: 50px 100px;
+  }
+
+  &__identity {
+    color: var(--color-text);
+    font-size: rem-calc(28);
+  }
+
   &__actions {
     align-items: flex-start;
     bottom: 80px;
