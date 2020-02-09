@@ -7,6 +7,7 @@ import PilotSkillLevels from "@/models/pilotSkillLevels";
 import PilotSkillPoints from "@/models/pilotSkillPoints";
 import Faction from "@/models/faction";
 import {squadronModule} from "@/store/squadron-module";
+import AddPilot from "@/components/squadron-element/_add-pilot/add-pilot.vue";
 
 @Component
 export default class SquadronView extends Vue {

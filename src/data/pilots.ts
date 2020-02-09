@@ -43,7 +43,8 @@ export const witoldUrbanowicz = new Pilot({
     bio: `Witold Urbanowicz shot down his first aircraft in 1936 - a Soviet reconnaissance plane.`,
     signatureTraitProperty: `Agility`,
     signatureTraitModifier: 1,
-    traits: [greatDive]
+    traits: [greatDive],
+    isGeneric: false
 });
 
 export default {

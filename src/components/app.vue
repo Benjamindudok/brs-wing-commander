@@ -4,6 +4,10 @@
 
     <router-view/>
 
+    <div class="app__actions">
+      <portal-target name="application-actions"></portal-target>
+    </div>
+
     <tab-bar></tab-bar>
   </div>
 </template>

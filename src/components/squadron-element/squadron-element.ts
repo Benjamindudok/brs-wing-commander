@@ -5,10 +5,16 @@ import {pilotsModule} from "@/store/pilots-module";
 import Squadron from "@/models/squadron";
 import Faction from "@/models/faction";
 import PlaneTypes from "@/models/planeTypes";
+import AddPilot from "@/components/squadron-element/_add-pilot/add-pilot.vue";
 
-@Component
+@Component({
+    components: {
+        AddPilot
+    }
+})
 export default class SquadronElementComponent extends Vue {
     selectedPilotId: string = '';
+    showAddPilotOverlay: boolean = false;
 
     @Prop()
     squadron!: Squadron;
@@ -48,12 +54,11 @@ export default class SquadronElementComponent extends Vue {
         return this.squadronElement.id;
     }
 
-    addPilot(): void
+    onPilotSelected(pilot: Pilot): void
     {
-        const selectedPilot: Pilot | undefined = this.availablePilots.find((p) => p.id === this.selectedPilotId);
-        if (selectedPilot)
+        if (pilot)
         {
-            this.squadronElement.pilots.push(new Pilot(selectedPilot));
+            this.squadronElement.pilots.push(new Pilot(pilot));
         }
     }
 }

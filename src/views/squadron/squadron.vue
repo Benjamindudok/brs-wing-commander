@@ -1,7 +1,6 @@
 <template>
     <div class="squadron">
-        {{squadron.name}}
-        total points: {{pointsTotal}}
+        <h2>{{squadron.name}} ({{pointsTotal}})</h2>
 
         <ul class="squadron__members">
             <squadron-element v-for="(element, index) in squadron.elements"
@@ -12,8 +11,13 @@
             </squadron-element>
         </ul>
 
-        <button @click="addElement">Add element</button>
-
+        <portal to="application-actions">
+            <brs-button variant="primary"
+                        type="icon"
+                        @click="addElement">
+                <material-icon icon="add"></material-icon>
+            </brs-button>
+        </portal>
     </div>
 </template>
 

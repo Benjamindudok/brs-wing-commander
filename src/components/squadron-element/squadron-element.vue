@@ -9,17 +9,14 @@
                             :plane="squadron.plane"></squadron-pilot>
         </ul>
 
-        <label for="plane">add a pilot</label>
-        <select v-model="selectedPilotId" id="plane">
-            <option value="" disabled></option>
-            <option v-for="pilot in availablePilots"
-                    :key="pilot.id"
-                    :value="pilot.id">
-                {{pilot.name}}
-            </option>
-        </select>
+        <brs-button  type="block"
+                    @click="showAddPilotOverlay = true">
+            add pilot
+        </brs-button>
 
-        <button @click="addPilot">add pilot</button>
+        <add-pilot :show="showAddPilotOverlay"
+                   @close="showAddPilotOverlay = false"
+                   @select="onPilotSelected"></add-pilot>
     </li>
 </template>
 

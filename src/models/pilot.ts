@@ -15,6 +15,7 @@ export default class Pilot {
     skill: PilotSkillLevels = PilotSkillLevels.rookie;
     points: number = 0;
     faction: Faction = Faction.unknown;
+    isGeneric: boolean = true;
 
     public constructor(init?: Partial<Pilot>) {
         Object.assign(this, init);

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './components/app.vue'
 import router from './views'
 import store from './store'
+import PortalVue from 'portal-vue';
 import SquadronElement from "@/components/squadron-element/squadron-element.vue";
 import SquadronPilot from "@/components/squadron-pilot/squadron-pilot.vue";
 import Tabbar from "@/components/tabbar/tabbar.vue";
@@ -13,6 +14,8 @@ import SelectableFaction from "@/components/selectable-faction/selectable-factio
 import SelectablePlane from "@/components/selectable-plane/selectable-plane.vue";
 import Button from "@/components/button/button.vue";
 import FormInput from "@/components/form-input/form-input.vue";
+
+Vue.use(PortalVue);
 
 Vue.config.productionTip = false;
 

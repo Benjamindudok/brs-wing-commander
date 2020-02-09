@@ -2,3 +2,14 @@
 
 @import "../scss/variables";
 @import "../scss/base";
+
+.app {
+  &__actions {
+    align-items: flex-start;
+    bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 20px;
+  }
+}
