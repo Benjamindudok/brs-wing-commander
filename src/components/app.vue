@@ -1,7 +1,9 @@
 <template>
   <div id="app" class="app">
     <sidebar>
-      <h1 slot="identity" class="app__identity">Airstrip</h1>
+      <router-link slot="identity" to="/" class="app__identity">
+        <h1 class="app__title">Airstrip</h1>
+      </router-link>
     </sidebar>
 
 <!--    <nav-bar></nav-bar>-->

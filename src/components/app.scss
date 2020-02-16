@@ -16,9 +16,14 @@
 
   &__content {
     padding: 50px 100px;
+    width: calc(100vw - 400px);
   }
 
   &__identity {
+    text-decoration: none;
+  }
+
+  &__title {
     color: var(--color-text);
     font-size: rem-calc(28);
   }

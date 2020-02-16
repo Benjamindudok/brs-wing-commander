@@ -3,11 +3,12 @@
 .sidebar {
   background: var(--color-grey-100);
   border-right: 1px solid var(--color-border);
-  padding: 40px 50px;
+  padding: 40px 0;
   width: 400px;
 
   &__identity {
     margin-bottom: 100px;
+    padding: 0 50px;
   }
 
   &__list {
@@ -34,21 +35,57 @@
     }
   }
 
+  &__icon {
+    color: var(--color-anchor);
+    margin-right: 15px;
+    transition: $transition-default;
+  }
+
   &__link {
-    color: var(--color-grey-900);
+    border-left: 3px solid transparent;
+    color: var(--color-anchor);
     display: block;
-    font-size: rem-calc(18);
-    font-weight: 500;
+    font-family: var(--font-family-header);
+    font-size: rem-calc(16);
+    font-weight: 600;
     line-height: 60px;
+    padding: 0 50px;
     text-decoration: none;
+    transition: $transition-default;
     width: 100%;
 
     &:visited {
-      color: var(--color-grey-900);
+      color: var(--color-anchor);
+
+      .sidebar__icon {
+        color: var(--color-anchor);
+      }
+    }
+
+    &:hover {
+      border-left-color: var(--color-anchor-hover);
+      color: var(--color-anchor-hover);
+
+      .sidebar__icon {
+        color: var(--color-anchor-hover);
+      }
     }
 
     &--is-active {
-      color: var(--color-primary-200);
+      border-left-color: var(--color-anchor-active);
+      color: var(--color-anchor-active);
+
+      .sidebar__icon {
+        color: var(--color-anchor-active);
+      }
+
+      &:visited {
+        color: var(--color-anchor-active);
+
+        .sidebar__icon {
+          color: var(--color-anchor-active);
+        }
+      }
     }
   }
 }

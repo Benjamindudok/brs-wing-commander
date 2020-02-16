@@ -1,22 +1,14 @@
-import {Component, Vue} from 'vue-property-decorator';
-import {planesModule} from "@/store/planes-module";
-import Plane from "@/models/plane";
-import SquadronElement from "@/models/squadronElement";
-import Squadron from "@/models/squadron";
-import PilotSkillLevels from "@/models/pilotSkillLevels";
+import {Component, Prop, Vue} from 'vue-property-decorator';
+import PilotSkillLevels from "../../models/pilotSkillLevels";
+import Pilot from "@/models/pilot";
 import PilotSkillPoints from "@/models/pilotSkillPoints";
-import Faction from "@/models/faction";
-import {squadronModule} from "@/store/squadron-module";
-import AddPilot from "@/components/squadron-element/_add-pilot/add-pilot.vue";
+import Plane from "@/models/plane";
+import Squadron from "../../models/squadron";
 
 @Component
-export default class SquadronView extends Vue {
-    squadron: Squadron = new Squadron({ faction: Faction.GB });
-    selectedPlaneId: string = '';
-
-    get planes(): Plane[] {
-        return planesModule.planes;
-    }
+export default class SquadronCard extends Vue {
+    @Prop()
+    squadron!: Squadron;
 
     get pointsTotal(): number {
         let points: number = 0;
@@ -58,23 +50,5 @@ export default class SquadronView extends Vue {
         }
 
         return points;
-    }
-
-    created(): void
-    {
-        squadronModule.getSquadronAction(this.$route.params.squadronId);
-
-        if (squadronModule.squadron.id)
-        {
-            this.squadron = new Squadron(squadronModule.squadron);
-        }
-    }
-
-    addElement(event: Event): void {
-        this.squadron.elements.push(new SquadronElement());
-    }
-
-    removeElement(index: number) {
-        this.squadron.elements.splice(index, 1);
     }
 }

@@ -1,0 +1,41 @@
+@import '../../scss/reference';
+
+.squadron-card {
+  align-items: center;
+  background: white;
+  border-radius: 20px;
+  color: var(--color-text);
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  min-height: 100px;
+  padding: 20px 20px;
+  text-align: left;
+  text-decoration: none;
+  width: calc(50% - 20px);
+
+  &:visited {
+    color: var(--color-text);
+  }
+
+  &__name,
+  &__title {
+    display: block;
+    margin: 0;
+    font-size: rem-calc(16);
+    font-weight: 700;
+  }
+
+  &__title {
+    font-size: rem-calc(14);
+  }
+
+  &__points {
+    font-size: rem-calc(12);
+  }
+
+  &__plane {
+    margin: 0;
+    font-size: rem-calc(14);
+  }
+}
