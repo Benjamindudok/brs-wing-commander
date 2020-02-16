@@ -1,6 +1,8 @@
 <template>
     <li class="squadron-pilot">
-      <span class="squadron-pilot__level">{{pilot.skill}}</span>
+      <div class="squadron-card__image-container">
+        <img class="squadron-card__image" src="/images/pierre-clostermann.jpg" />
+      </div>
       <section class="squadron-pilot__content">
         <h3 class="squadron-pilot__name">
           {{pilot.name}}
@@ -17,6 +19,7 @@
           </li>
         </ul>
       </section>
+      <span class="squadron-pilot__level">{{pilot.skill}}</span>
     </li>
 </template>
 
