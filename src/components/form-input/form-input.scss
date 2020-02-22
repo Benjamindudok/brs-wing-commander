@@ -1,5 +1,23 @@
 @import '../../scss/_reference.scss';
 
 .form-input {
-    // empty
+    &__label {
+      display: block;
+      font-size: rem-calc(15);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    &__input {
+      border: var(--color-border);
+      color: var(--color-text);
+      font-size: rem-calc(16);
+      line-height: rem-calc(32);
+      padding: 5px 20px;
+      width: 100%;
+
+      &::placeholder {
+        font-size: rem-calc(15);
+      }
+    }
 }

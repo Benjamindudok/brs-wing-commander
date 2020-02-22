@@ -5,11 +5,14 @@
     border: none;
     border-radius: var(--border-radius);
     cursor: pointer;
-    padding: 8px 20px;
+    font-size: rem-calc(16);
+    font-weight: 600;
+    line-height: 32px;
+    padding: 5px 20px;
 
     &--primary {
-        background: var(--color-primary-500);
-        color: var(--color-grey-10);
+        background: var(--color-white);
+        color: var(--color-grey-700);
     }
 
     &--block {
@@ -20,5 +23,9 @@
     &--icon {
         border-radius: 50%;
         padding: 8px 10px;
+    }
+
+    + .button {
+        margin-right: 10px;
     }
 }

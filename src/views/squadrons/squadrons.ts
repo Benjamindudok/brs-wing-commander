@@ -1,5 +1,5 @@
 import {Component, Vue} from 'vue-property-decorator';
-import CreateSquadron from "@/views/squadrons/_create-squadron/create-squadron.vue";
+import CreateSquadron from "@/views/squadrons/create-squadron/create-squadron.vue";
 import Squadron from "@/models/squadron";
 import {squadronModule} from "@/store/squadron-module";
 import Faction from "@/models/faction";

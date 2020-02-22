@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 import Squadron from "@/views/squadron/squadron.vue";
 import Squadrons from "@/views/squadrons/squadrons.vue";
 import Cards from "@/views/cards/cards.vue";
-import Dashboard from "@/views/dashboard/dashboard.vue";
+import CreateSquadron from "@/views/squadrons/create-squadron/create-squadron.vue";
 
 Vue.use(VueRouter);
 
@@ -16,7 +16,7 @@ const routes = [
   {
     path: '/squadrons/new',
     name: 'squadronNew',
-    component: Squadron
+    component: CreateSquadron
   },
   {
     path: '/squadrons/:squadronId?',

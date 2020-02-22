@@ -4,11 +4,12 @@
 
   &__label {
     display: block;
+    font-family: var(--font-family);
+    font-size: rem-calc(15);
     font-weight: 700;
     width: 100%;
   }
 
-  &__name,
   &__factions,
   &__planes {
     border: none;
@@ -16,7 +17,6 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     margin: 0;
-    padding: 10px 20px;
   }
 
   &__faction,

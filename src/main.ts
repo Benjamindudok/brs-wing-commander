@@ -16,11 +16,14 @@ import Button from "@/components/button/button.vue";
 import FormInput from "@/components/form-input/form-input.vue";
 import Sidebar from "@/components/sidebar/sidebar.vue";
 import SquadronCard from "@/components/squadron-card/squadron-card.vue";
+import FormFieldset from "@/components/form-fieldset/form-fieldset.vue";
 
 Vue.use(PortalVue);
 
 Vue.config.productionTip = false;
 
+Vue.component('form-input', FormInput);
+Vue.component('form-fieldset', FormFieldset);
 Vue.component('squadron-element', SquadronElement);
 Vue.component('squadron-pilot', SquadronPilot);
 Vue.component('nav-bar', Navbar);
@@ -31,7 +34,6 @@ Vue.component('overlay', Overlay);
 Vue.component('selectable-faction', SelectableFaction);
 Vue.component('selectable-plane', SelectablePlane);
 Vue.component('brs-button', Button);
-Vue.component('form-input', FormInput);
 Vue.component('sidebar', Sidebar);
 Vue.component('squadron', SquadronCard);
 

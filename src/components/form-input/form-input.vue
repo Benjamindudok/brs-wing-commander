@@ -1,9 +1,10 @@
 ﻿<template>
-    <label class="form-field">
-        {{label}}
+    <label class="form-input">
+        <span class="form-input__label">{{label}}</span>
         <input v-bind="$attrs"
                v-on="listeners"
-               v-model="model">
+               v-model="model"
+               class="form-input__input">
     </label>
 </template>
 

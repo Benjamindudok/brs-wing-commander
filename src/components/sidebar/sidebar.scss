@@ -1,7 +1,7 @@
 @import '../../scss/reference';
 
 .sidebar {
-  background: var(--color-grey-100);
+  background: var(--color-white);
   border-right: 1px solid var(--color-border);
   padding: 40px 0;
   width: 400px;
@@ -36,18 +36,26 @@
   }
 
   &__icon {
-    color: var(--color-anchor);
+    display: inline-block;
+    height: 24px;
     margin-right: 15px;
     transition: $transition-default;
+    vertical-align: center;
+    width: 24px;
+
+    path, line, circle {
+      stroke: var(--color-anchor);
+    }
   }
 
   &__link {
+    align-items: center;
     border-left: 3px solid transparent;
     color: var(--color-anchor);
-    display: block;
+    display: flex;
     font-family: var(--font-family-header);
-    font-size: rem-calc(16);
-    font-weight: 600;
+    font-size: rem-calc(14);
+    font-weight: 500;
     line-height: 60px;
     padding: 0 50px;
     text-decoration: none;
@@ -58,7 +66,9 @@
       color: var(--color-anchor);
 
       .sidebar__icon {
-        color: var(--color-anchor);
+        path, line, circle {
+          stroke: var(--color-anchor);
+        }
       }
     }
 
@@ -67,7 +77,9 @@
       color: var(--color-anchor-hover);
 
       .sidebar__icon {
-        color: var(--color-anchor-hover);
+        path, line, circle {
+          stroke: var(--color-anchor-hover);
+        }
       }
     }
 

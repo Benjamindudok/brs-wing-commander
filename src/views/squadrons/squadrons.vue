@@ -29,12 +29,12 @@
         </div>
 
         <portal to="application-actions">
-            <brs-button variant="primary" type="icon" @click="showSquadronOverlay = true">
-                <material-icon icon="add"></material-icon>
-            </brs-button>
+            <router-link to="/squadrons/new" v-slot="{ navigate }">
+                <brs-button variant="primary" type="icon" @click="navigate">
+                    <material-icon icon="add"></material-icon>
+                </brs-button>
+            </router-link>
         </portal>
-
-        <create-squadron :show="showSquadronOverlay" @close="showSquadronOverlay = false"></create-squadron>
     </div>
 </template>
 

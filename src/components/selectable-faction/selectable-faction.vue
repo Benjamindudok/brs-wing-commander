@@ -5,7 +5,8 @@
                :name="faction.name"
                :value="faction.id"
                v-model="model"/>
-        <span class="selectable-faction__icon">
+        <span class="selectable-faction__card">
+            <span class="selectable-faction__icon"></span>
           <span>{{faction.name}}</span>
         </span>
     </label>
