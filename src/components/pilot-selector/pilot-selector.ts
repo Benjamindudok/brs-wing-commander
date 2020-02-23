@@ -1,4 +1,4 @@
-﻿import {Component, Emit, Prop, Vue, Watch} from 'vue-property-decorator';
+﻿import {Component, Prop, Vue, Watch} from 'vue-property-decorator';
 import Squadron from "../../models/squadron";
 import Pilot from "../../models/pilot";
 import pilots from "../../data/pilots";
@@ -16,10 +16,8 @@ export default class PilotSelector extends Vue {
     }
 
     @Watch('selectedPilotId')
-    selectPilot(id: string)
-    {
-        if (id)
-        {
+    selectPilot(id: string) {
+        if (id) {
             this.selectedPilotId = '';
             const pilot: Pilot | undefined = this.pilots.find((p) => p.id === id);
             this.$emit('select-pilot', pilot);
