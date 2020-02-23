@@ -6,8 +6,7 @@
         <main class="squadron">
 
             <section class="name">
-                <editable-element tag="h2"
-                                  class="app__squadron-name"
+                <editable-element tag="h1"
                                   :content="squadron.name"
                                   @update="squadron.name = $event"></editable-element>
             </section>
@@ -37,7 +36,7 @@
             </section>
 
             <div class="selector-categories">
-                <h2>Configure your squadron</h2>
+                <h3>Configure your squadron</h3>
                 <selector-container>
                     <selector-card name="Factions"
                                    id="factions"
@@ -65,10 +64,7 @@
             </div>
 
 
-            <section class="meta">
-                <h3>points</h3>
-                {{pointsTotal}}
-            </section>
+            <squadron-meta :squadron="squadron"></squadron-meta>
         </main>
 
         <footer class="footer"></footer>

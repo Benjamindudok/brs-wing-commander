@@ -1,7 +1,6 @@
 <template>
     <li class="squadron-element">
-        <editable-element tag="h2"
-                          class="squadron-element__title"
+        <editable-element tag="h3"
                           :content="squadronElement.name"
                           @update="squadronElement.name = $event"></editable-element>
 

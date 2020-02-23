@@ -1,6 +1,6 @@
 ﻿<template>
     <section class="selector-container">
-        <h3 v-if="title" class="selector-container__title">{{title}}</h3>
+        <h5 v-if="title" class="selector-container__title">{{title}}</h5>
         <div class="selector-container__items">
             <slot></slot>
         </div>

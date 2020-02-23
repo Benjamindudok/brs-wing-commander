@@ -12,6 +12,7 @@ import AircraftSelector from "@/components/aircraft-selector/aircraft-selector.v
 import PilotSelector from "@/components/pilot-selector/pilot-selector.vue";
 import SelectorContainer from "@/components/selector-container/selector-container.vue";
 import SelectorCard from "@/components/selector-card/selector-card.vue";
+import SquadronMeta from "@/components/squadron-meta/squadron-meta.vue";
 
 import './validation';
 
@@ -30,6 +31,7 @@ Vue.component('aircraft-selector', AircraftSelector);
 Vue.component('pilot-selector', PilotSelector);
 Vue.component('selector-container', SelectorContainer);
 Vue.component('selector-card', SelectorCard);
+Vue.component('squadron-meta', SquadronMeta);
 
 new Vue({
     render: h => h(App)

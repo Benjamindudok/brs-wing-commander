@@ -48,36 +48,6 @@ export default class App extends Vue {
         }
     }
 
-    get pointsTotal(): number {
-        let points: number = 0;
-
-        for (const element of this.squadron.elements) {
-            points += element.pilots.reduce((a, p) => {
-                if (p.points) {
-                    return a + p.points
-                } else {
-                    if (p.skill === PilotSkillLevels.rookie) {
-                        return a + PilotSkillPoints.rookie;
-                    } else if (p.skill === PilotSkillLevels.regular) {
-                        return a + PilotSkillPoints.regular;
-                    } else if (p.skill === PilotSkillLevels.veteran) {
-                        return a + PilotSkillPoints.veteran;
-                    } else if (p.skill === PilotSkillLevels.ace) {
-                        return a + PilotSkillPoints.ace;
-                    }
-                }
-
-                return 0;
-            }, 0);
-
-            if (this.squadron.plane) {
-                points += element.pilots.length * this.squadron.plane.points;
-            }
-        }
-
-        return points;
-    }
-
     get currentElement(): SquadronElement | null {
         return this.squadron.elements.find((e) => e.id === this.selectedElementId) ?? null;
     }
