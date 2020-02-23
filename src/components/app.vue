@@ -36,25 +36,34 @@
                 </squadron-element>
             </section>
 
-            <section class="faction">
-                <h3>faction</h3>
-                <div class="create-squadron__factions">
-                    <selectable-faction v-for="faction in factions"
-                                        :key="faction.id"
-                                        :faction="faction"
-                                        v-model="squadron.faction">
-                    </selectable-faction>
-                </div>
-            </section>
+            <div class="selector-categories">
+                <h2>Configure your squadron</h2>
+                <selector-container>
+                    <selector-card name="Factions"
+                                   id="factions"
+                                   v-model="selectedCategoryId">
+                    </selector-card>
+                    <selector-card name="Aircrafts"
+                                   id="aircrafts"
+                                   v-model="selectedCategoryId">
+                    </selector-card>
+                    <selector-card name="Pilots"
+                                   id="pilots"
+                                   v-model="selectedCategoryId">
+                    </selector-card>
+                </selector-container>
+            </div>
 
-            <section class="aircraft">
-                <h3>aircraft</h3>
-                <selectable-plane v-for="plane in planes"
-                                  :key="plane.id"
-                                  :plane="plane"
-                                  v-model="selectedPlaneId">
-                </selectable-plane>
-            </section>
+            <div class="selector-items">
+                <faction-selector v-if="selectedCategoryId === 'factions'" :squadron="squadron"></faction-selector>
+
+                <aircraft-selector v-if="selectedCategoryId === 'aircrafts'" :squadron="squadron"></aircraft-selector>
+
+                <pilot-selector v-if="selectedCategoryId === 'pilots'"
+                                :squadron="squadron"
+                                @select-pilot="addPilot"></pilot-selector>
+            </div>
+
 
             <section class="meta">
                 <h3>points</h3>

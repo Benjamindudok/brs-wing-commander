@@ -1,13 +1,13 @@
-import {Component, Vue, Watch} from 'vue-property-decorator';
+import {Component, Vue} from 'vue-property-decorator';
 import Squadron from "@/models/squadron";
 import {uuid} from "uuidv4";
 import Faction from "@/models/faction";
-import Plane from "@/models/plane";
 import PilotSkillLevels from "@/models/pilotSkillLevels";
 import PilotSkillPoints from "@/models/pilotSkillPoints";
 import SquadronElement from "@/models/squadronElement";
 import planes from "@/data/planes";
 import {regularPilot} from "@/data/pilots";
+import Pilot from "@/models/pilot";
 
 @Component
 export default class App extends Vue {
@@ -20,25 +20,24 @@ export default class App extends Vue {
             new SquadronElement({
                 name: 'Element 1',
                 pilots: [
-                    regularPilot,
-                    regularPilot,
-                    regularPilot
+                    new Pilot({ ...regularPilot, id: uuid() }),
+                    new Pilot({ ...regularPilot, id: uuid() }),
+                    new Pilot({ ...regularPilot, id: uuid() })
                 ]
             }),
             new SquadronElement({
                 name: 'Element 2',
                 pilots: [
-                    regularPilot,
-                    regularPilot
+                    new Pilot({ ...regularPilot, id: uuid() }),
+                    new Pilot({ ...regularPilot, id: uuid() })
                 ]
             })
         ]
     });
-    selectedPlaneId: string = planes.spitfireV.id;
     selectedElementId: string = this.squadron?.elements[0].id ?? '';
+    selectedCategoryId: string = 'factions';
 
-    get classes(): Record<string, boolean>
-    {
+    get classes(): Record<string, boolean> {
         return {
             'app': true,
             'app--luftwaffe': this.squadron.faction === Faction.DE,
@@ -47,24 +46,6 @@ export default class App extends Vue {
             'app--saf': this.squadron.faction === Faction.SV,
             'app--ija': this.squadron.faction === Faction.JP
         }
-    }
-
-    get factions(): Array<{ id: Faction, name: string }> {
-        return [
-            {id: Faction.GB, name: 'Great Britain'},
-            {id: Faction.DE, name: 'Germany'},
-            {id: Faction.JP, name: 'Japan'},
-            {id: Faction.SV, name: 'Soviet Union'},
-            {id: Faction.US, name: 'United States of America'}
-        ];
-    }
-
-    get planes(): Plane[] {
-        if (this.squadron.faction) {
-            return (Object.values(planes) as Plane[]).filter((p) => p.faction === this.squadron.faction);
-        }
-
-        return (Object.values(planes) as Plane[]);
     }
 
     get pointsTotal(): number {
@@ -102,7 +83,7 @@ export default class App extends Vue {
     }
 
     addElement(event: Event): void {
-        this.squadron.elements.push(new SquadronElement({ name: 'Element name'}));
+        this.squadron.elements.push(new SquadronElement({name: 'Element name'}));
     }
 
     removeElement(id: string) {
@@ -110,13 +91,8 @@ export default class App extends Vue {
         this.squadron.elements.splice(index, 1);
     }
 
-    @Watch('selectedPlaneId')
-    setSelectedPlane(): void {
-        if (this.selectedPlaneId) {
-            const plane: Plane | undefined = this.planes.find((p) => p.id === this.selectedPlaneId);
-            if (plane) {
-                this.squadron.plane = new Plane(plane);
-            }
-        }
+    addPilot(pilot: Pilot): void {
+        console.log('add pilot', pilot, new Pilot({ ...pilot, id: uuid() }));
+        this.currentElement?.pilots.push(new Pilot({ ...pilot, id: uuid() }));
     }
 }

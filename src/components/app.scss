@@ -57,19 +57,14 @@
     grid-column-gap: 1rem;
     grid-row-gap: 1rem;
     grid-template-columns: repeat(auto-fill, minmax(calc((100% / 12) - 1rem), 1fr));
-    grid-template-rows: 64px fit-content(50%) auto 64px;
+    grid-template-rows: 64px 200px auto 64px;
     height: calc(100vh - 120px - 40px);
   }
 }
 
-.faction,
-.aircraft {
-  order: 2;
-
-  @include respond-to(large) {
-    grid-column: auto / span 4;
-    order: initial;
-  }
+.selector-items,
+.selector-categories {
+  grid-column: auto / span 4;
 }
 
 .name,
