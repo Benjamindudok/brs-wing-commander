@@ -37,6 +37,18 @@ export default class App extends Vue {
     selectedPlaneId: string = planes.spitfireV.id;
     selectedElementId: string = this.squadron?.elements[0].id ?? '';
 
+    get classes(): Record<string, boolean>
+    {
+        return {
+            'app': true,
+            'app--luftwaffe': this.squadron.faction === Faction.DE,
+            'app--raf': this.squadron.faction === Faction.GB,
+            'app--usaf': this.squadron.faction === Faction.US,
+            'app--saf': this.squadron.faction === Faction.SV,
+            'app--ija': this.squadron.faction === Faction.JP
+        }
+    }
+
     get factions(): Array<{ id: Faction, name: string }> {
         return [
             {id: Faction.GB, name: 'Great Britain'},
@@ -90,7 +102,7 @@ export default class App extends Vue {
     }
 
     addElement(event: Event): void {
-        this.squadron.elements.push(new SquadronElement());
+        this.squadron.elements.push(new SquadronElement({ name: 'Element name'}));
     }
 
     removeElement(id: string) {

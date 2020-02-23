@@ -5,22 +5,18 @@
                           :content="squadronElement.name"
                           @update="squadronElement.name = $event"></editable-element>
 
+        <brs-button variant="error"
+                    type="text"
+                    @click="remove">
+            remove element
+        </brs-button>
+
         <ul class="squadron-element__pilots">
             <squadron-pilot v-for="pilot in squadronElement.pilots"
                             :key="pilot.id"
                             :pilot="pilot"
                             :plane="squadron.plane"></squadron-pilot>
         </ul>
-
-        <brs-button type="text"
-                    @click="showAddPilotOverlay = true">
-            add pilot
-        </brs-button>
-
-        <brs-button type="text"
-                    @click="remove">
-            remove element
-        </brs-button>
     </li>
 </template>
 

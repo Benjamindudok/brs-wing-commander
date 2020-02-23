@@ -25,6 +25,19 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+
+  &::before {
+    background: var(--color-grey-0);
+    bottom: 0;
+    content: '';
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 70%;
+    top: 0;
+    transition: $transition-default;
+    z-index: -1;
+  }
 }
 
 .navbar,
@@ -78,7 +91,7 @@
     grid-row: auto / span 2;
     max-height: calc(100vh - 120px - 40px - 200px);
     order: initial;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 }
 

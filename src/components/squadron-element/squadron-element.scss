@@ -1,35 +1,26 @@
 @import '../../scss/reference';
 
 .squadron-element {
-  align-items: center;
+  align-items: flex-start;
   border-radius: 5px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   margin: 5px 0;
+  max-width: 768px;
   padding: 20px 10px;
   text-align: left;
   width: 100%;
 
   &__title {
-    font-size: 20px;
+    font-size: rem-calc(32px);
     margin: 0;
     width: 100%;
   }
 
-  &__summary {
-    font-size: 14px;
-    margin: 5px 0 20px;
-    width: 100%;
-  }
-
-  &__points {
-    font-weight: 700;
-  }
-
   &__pilots {
-    padding: 5px;
+    padding: 5px 0;
     width: 100%;
   }
 }
