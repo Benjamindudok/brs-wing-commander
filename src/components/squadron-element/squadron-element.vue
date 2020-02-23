@@ -1,6 +1,9 @@
 <template>
     <li class="squadron-element">
-        <h2 class="squadron-element__title">Element name <span>({{ totalPoints }})</span></h2>
+        <editable-element tag="h2"
+                          class="squadron-element__title"
+                          :content="squadronElement.name"
+                          @update="squadronElement.name = $event"></editable-element>
 
         <ul class="squadron-element__pilots">
             <squadron-pilot v-for="pilot in squadronElement.pilots"
@@ -9,14 +12,15 @@
                             :plane="squadron.plane"></squadron-pilot>
         </ul>
 
-        <brs-button  type="block"
+        <brs-button type="text"
                     @click="showAddPilotOverlay = true">
             add pilot
         </brs-button>
 
-        <add-pilot :show="showAddPilotOverlay"
-                   @close="showAddPilotOverlay = false"
-                   @select="onPilotSelected"></add-pilot>
+        <brs-button type="text"
+                    @click="remove">
+            remove element
+        </brs-button>
     </li>
 </template>
 

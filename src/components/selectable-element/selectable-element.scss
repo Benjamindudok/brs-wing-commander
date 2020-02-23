@@ -1,0 +1,44 @@
+@import '../../scss/reference';
+
+.selectable-element {
+  align-items: flex-end;
+  background: var(--color-grey-100);
+  border: 2px solid var(--color-border);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 82px;
+  margin: 5px;
+  overflow: hidden;
+  padding: 10px 5px;
+  position: relative;
+  transition: $transition-default;
+  width: 82px;
+
+  &__name {
+    display: block;
+    font-size: rem-calc(12);
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__points {
+    font-size: rem-calc(18);
+    font-weight: 700;
+  }
+
+  &--is-active {
+    background: var(--color-grey-200);
+    border-color: var(--color-highlight);
+  }
+
+  &--is-placeholder {
+    align-items: center;
+    border-style: dashed;
+    justify-content: space-around;
+  }
+}

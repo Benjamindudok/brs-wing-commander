@@ -5,7 +5,7 @@ import Faction from "@/models/faction";
 export default class Squadron {
     id: string = '';
     name: string = '';
-    faction: Faction = Faction.unknown;
+    faction: Faction | null = null;
     plane: Plane | null = null;
     elements: SquadronElement[] = [];
 

@@ -4,36 +4,93 @@
 @import "../scss/base";
 
 .app {
-  display: flex;
-  justify-content: flex-start;
-  min-height: 100vh;
-  padding: 0;
+  margin: 0 auto;
+  padding: 10px;
 
-  @include respond-to(large)
-  {
-    padding: 0;
+  @include respond-to(medium) {
+    padding: 20px 40px;
   }
 
-  &__content {
-    padding: 50px 100px;
-    width: calc(100vw - 400px);
+  @include respond-to(large) {
+    height: 100vh;
+    padding: 20px 100px;
   }
 
-  &__identity {
-    text-decoration: none;
+  &__squadron-name {
+    font-size: rem-calc(48);
+    line-height: 64px;
+    margin: 0 0;
+    max-height: 64px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
+}
 
-  &__title {
-    color: var(--color-text);
-    font-size: rem-calc(28);
-  }
+.navbar,
+.footer {
+  display: block;
+  height: 60px;
+  width: 100%;
+}
 
-  &__actions {
-    align-items: flex-start;
-    bottom: 80px;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    right: 20px;
+.squadron {
+  display: grid;
+  grid-gap: 10px;
+  width: 100%;
+
+  @include respond-to(large) {
+    display: grid;
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(calc((100% / 12) - 1rem), 1fr));
+    grid-template-rows: 64px fit-content(50%) auto 64px;
+    height: calc(100vh - 120px - 40px);
   }
+}
+
+.faction,
+.aircraft {
+  order: 2;
+
+  @include respond-to(large) {
+    grid-column: auto / span 4;
+    order: initial;
+  }
+}
+
+.name,
+.actions,
+.meta {
+  order: 1;
+
+  @include respond-to(large) {
+    grid-column: auto / span 6;
+    order: initial;
+  }
+}
+
+.pilots {
+  order: 3;
+
+  @include respond-to(large) {
+    grid-column: auto / span 7;
+    grid-row: auto / span 2;
+    max-height: calc(100vh - 120px - 40px - 200px);
+    order: initial;
+    overflow-y: scroll;
+  }
+}
+
+.elements {
+  order: 3;
+
+  @include respond-to(large) {
+    grid-row: auto / span 2;
+    order: initial;
+  }
+}
+
+.actions {
+  order: 0;
 }
