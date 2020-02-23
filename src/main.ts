@@ -17,11 +17,15 @@ import FormInput from "@/components/form-input/form-input.vue";
 import Sidebar from "@/components/sidebar/sidebar.vue";
 import SquadronCard from "@/components/squadron-card/squadron-card.vue";
 import FormFieldset from "@/components/form-fieldset/form-fieldset.vue";
+import FormContainer from "@/components/form-container/form-container.vue";
+
+import './validation';
 
 Vue.use(PortalVue);
 
 Vue.config.productionTip = false;
 
+Vue.component('form-container', FormContainer);
 Vue.component('form-input', FormInput);
 Vue.component('form-fieldset', FormFieldset);
 Vue.component('squadron-element', SquadronElement);

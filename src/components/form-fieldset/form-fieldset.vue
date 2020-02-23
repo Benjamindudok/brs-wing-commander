@@ -1,7 +1,7 @@
 ﻿<template>
-    <fieldset class="form-fieldset">
+    <validation-observer tag="fieldset" class="form-fieldset">
         <slot></slot>
-    </fieldset>
+    </validation-observer>
 </template>
 
 <script lang="ts" src="./form-fieldset.ts"></script>

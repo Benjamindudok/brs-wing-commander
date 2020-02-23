@@ -20,4 +20,12 @@
         font-size: rem-calc(15);
       }
     }
+
+  &__error {
+    color: var(--color-error);
+    display: block;
+    font-size: rem-calc(14);
+    font-weight: 400;
+    margin: 4px 0;
+  }
 }

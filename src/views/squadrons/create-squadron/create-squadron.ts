@@ -5,6 +5,7 @@ import Squadron from "@/models/squadron";
 import Faction from "@/models/faction";
 import {squadronModule} from "@/store/squadron-module";
 import {uuid} from "uuidv4";
+import {ValidationObserver} from 'vee-validate';
 
 @Component
 export default class CreateSquadron extends Vue {
@@ -34,11 +35,14 @@ export default class CreateSquadron extends Vue {
 
     }
 
-    create(): void
+    async create(): Promise<void>
     {
-        // validate
-        squadronModule.createSquadronAction(this.squadron);
-        this.$router.push(`/squadrons/${this.squadron.id}`);
+        const result: any = await this.validate();
+        if (result)
+        {
+            squadronModule.createSquadronAction(this.squadron);
+            this.$router.push(`/squadrons/${this.squadron.id}`);
+        }
     }
 
     @Watch('selectedPlaneId')
@@ -52,5 +56,10 @@ export default class CreateSquadron extends Vue {
                 this.squadron.plane = new Plane(plane);
             }
         }
+    }
+
+    validate(): Promise<void>
+    {
+        return (this.$refs.observer as any).$children[0].validate();
     }
 }

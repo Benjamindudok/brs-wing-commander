@@ -6,11 +6,12 @@
             but named aces can only be picked once.
         </p>
 
-        <form>
+        <form-container ref="observer">
             <form-fieldset class="create-squadron__name">
                 <form-input v-model="squadron.name"
                             label="Name"
-                            placeholder="Enter your squadron's name"></form-input>
+                            placeholder="Enter your squadron's name"
+                            :required="true"></form-input>
             </form-fieldset>
 
             <form-fieldset>
@@ -34,7 +35,7 @@
 <!--            </div>-->
 
             <brs-button variant="primary" @click="create">create</brs-button>
-        </form>
+        </form-container>
 
     </div>
 </template>
