@@ -18,9 +18,7 @@ export default class PilotSelector extends Vue {
 
     selectPilot(id: string) {
         if (id) {
-            //this.selectedPilotId = '';
             const pilot: Pilot | undefined = this.pilots.find((p) => p.id === id);
-            console.log('before emit');
             this.$emit('select-pilot', pilot);
         }
     }

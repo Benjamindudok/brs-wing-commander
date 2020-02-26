@@ -72,7 +72,6 @@ export default class App extends Vue {
     }
 
     addPilot(pilot: Pilot): void {
-        console.log('add pilot', pilot, new Pilot({...pilot, id: uuid()}));
         this.currentElement?.pilots.push(new Pilot({...pilot, id: uuid()}));
     }
 
