@@ -58,12 +58,21 @@ export default class App extends Vue {
     }
 
     removeElement(id: string) {
-        const index: number = this.squadron.elements.findIndex((e) => e.id === id);
-        this.squadron.elements.splice(index, 1);
+        const elementIndex: number = this.squadron.elements.findIndex((e) => e.id === id);
+        this.squadron.elements.splice(elementIndex, 1);
     }
 
     addPilot(pilot: Pilot): void {
         console.log('add pilot', pilot, new Pilot({ ...pilot, id: uuid() }));
         this.currentElement?.pilots.push(new Pilot({ ...pilot, id: uuid() }));
+    }
+
+    removePilot(id: string): void
+    {
+        const pilotIndex: number | null = this.currentElement?.pilots.findIndex((p) => p.id === id) ?? null;
+        if (pilotIndex)
+        {
+            this.currentElement?.pilots.splice(pilotIndex, 1);
+        }
     }
 }

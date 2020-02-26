@@ -31,7 +31,8 @@
                                   :key="currentElement ? currentElement.id : ''"
                                   :squadron="squadron"
                                   :squadron-element="currentElement"
-                                  @remove="removeElement(currentElement.id)">
+                                  @remove="removeElement"
+                                  @remove-pilot="removePilot">
                 </squadron-element>
             </section>
 

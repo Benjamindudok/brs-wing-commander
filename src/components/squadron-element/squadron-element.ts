@@ -39,14 +39,13 @@ export default class SquadronElementComponent extends Vue {
         return points;
     }
 
-    @Emit('remove')
+    @Emit('remove-element')
     remove(): string {
         return this.squadronElement.id;
     }
 
-    onPilotSelected(pilot: Pilot): void {
-        if (pilot) {
-            this.squadronElement.pilots.push(new Pilot(pilot));
-        }
+    @Emit('remove-pilot')
+    removePilot(id: string): string {
+        return id;
     }
 }

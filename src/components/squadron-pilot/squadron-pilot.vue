@@ -20,6 +20,7 @@
         </ul>
       </section>
       <span class="squadron-pilot__level">{{pilot.skill}}</span>
+      <button @click="remove">remove</button>
     </li>
 </template>
 

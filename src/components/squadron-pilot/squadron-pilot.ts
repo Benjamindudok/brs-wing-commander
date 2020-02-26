@@ -1,4 +1,4 @@
-import {Component, Prop, Vue} from 'vue-property-decorator';
+import {Component, Emit, Prop, Vue} from 'vue-property-decorator';
 import PilotSkillLevels from "../../models/pilotSkillLevels";
 import Pilot from "@/models/pilot";
 import PilotSkillPoints from "@/models/pilotSkillPoints";
@@ -36,5 +36,11 @@ export default class SquadronPilot extends Vue {
         }
 
         return 0;
+    }
+
+    @Emit('remove')
+    remove(): string
+    {
+        return this.pilot.id;
     }
 }
