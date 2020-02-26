@@ -32,9 +32,15 @@
 
 .navbar,
 .footer {
-  display: block;
+  align-items: center;
+  display: flex;
   height: 60px;
+  justify-content: flex-end;
   width: 100%;
+
+  &__link {
+    margin: 0 4px;
+  }
 }
 
 .squadron {

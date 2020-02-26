@@ -71,7 +71,9 @@
             <squadron-meta :squadron="squadron"></squadron-meta>
         </main>
 
-        <footer class="footer"></footer>
+        <footer class="footer">
+            Made with &hearts; by <a class="footer__link" href="https://github.com/Benjamindudok" target="_blank">Benjamin Dudok</a>
+        </footer>
     </div>
 </template>
 
