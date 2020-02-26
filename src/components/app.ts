@@ -20,16 +20,16 @@ export default class App extends Vue {
             new SquadronElement({
                 name: 'Element 1',
                 pilots: [
-                    new Pilot({ ...regularPilot, id: uuid() }),
-                    new Pilot({ ...regularPilot, id: uuid() }),
-                    new Pilot({ ...regularPilot, id: uuid() })
+                    new Pilot({...regularPilot, id: uuid()}),
+                    new Pilot({...regularPilot, id: uuid()}),
+                    new Pilot({...regularPilot, id: uuid()})
                 ]
             }),
             new SquadronElement({
                 name: 'Element 2',
                 pilots: [
-                    new Pilot({ ...regularPilot, id: uuid() }),
-                    new Pilot({ ...regularPilot, id: uuid() })
+                    new Pilot({...regularPilot, id: uuid()}),
+                    new Pilot({...regularPilot, id: uuid()})
                 ]
             })
         ]
@@ -53,6 +53,15 @@ export default class App extends Vue {
         return this.squadron.elements.find((e) => e.id === this.selectedElementId) ?? null;
     }
 
+    get selectedFactionId(): string | null {
+        return this.squadron.faction ?? null;
+    }
+
+    get selectedPlaneName(): string | null
+    {
+        return this.squadron.plane?.name ?? null;
+    }
+
     addElement(event: Event): void {
         this.squadron.elements.push(new SquadronElement({name: 'Element name'}));
     }
@@ -63,15 +72,13 @@ export default class App extends Vue {
     }
 
     addPilot(pilot: Pilot): void {
-        console.log('add pilot', pilot, new Pilot({ ...pilot, id: uuid() }));
-        this.currentElement?.pilots.push(new Pilot({ ...pilot, id: uuid() }));
+        console.log('add pilot', pilot, new Pilot({...pilot, id: uuid()}));
+        this.currentElement?.pilots.push(new Pilot({...pilot, id: uuid()}));
     }
 
-    removePilot(id: string): void
-    {
+    removePilot(id: string): void {
         const pilotIndex: number | null = this.currentElement?.pilots.findIndex((p) => p.id === id) ?? null;
-        if (pilotIndex)
-        {
+        if (pilotIndex) {
             this.currentElement?.pilots.splice(pilotIndex, 1);
         }
     }

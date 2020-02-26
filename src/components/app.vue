@@ -39,12 +39,12 @@
             <div class="selector-categories">
                 <h3>Configure your squadron</h3>
                 <selector-container>
-                    <selector-card name="Factions"
+                    <selector-card :name="selectedFactionId ? $options.filters.factionName(selectedFactionId) : 'Factions'"
                                    id="factions"
                                    v-model="selectedCategoryId">
                         <div class="placeholder-icon" />
                     </selector-card>
-                    <selector-card name="Aircrafts"
+                    <selector-card :name="selectedPlaneName ? selectedPlaneName : 'Aircrafts'"
                                    id="aircrafts"
                                    v-model="selectedCategoryId">
                         <div class="placeholder-icon" />

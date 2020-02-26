@@ -12,6 +12,9 @@ export default class SelectorCard extends Vue {
     @Prop()
     id!: unknown;
 
+    @Prop()
+    disabled!: boolean;
+
     get model(): unknown {
         return this.value;
     }
