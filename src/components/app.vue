@@ -60,7 +60,7 @@
 
                 <pilot-selector v-if="selectedCategoryId === 'pilots'"
                                 :squadron="squadron"
-                                @select-pilot="addPilot"></pilot-selector>
+                                @select-pilot="addPilot($event)"></pilot-selector>
             </div>
 
 

@@ -4,7 +4,8 @@
                        :key="pilot.id"
                        :name="pilot.name"
                        :id="pilot.id"
-                       v-model="selectedPilotId">
+                       v-model="selectedPilotId"
+                        @click="selectPilot(pilot.id)">
         </selector-card>
     </selector-container>
 </template>

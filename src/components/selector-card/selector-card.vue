@@ -4,6 +4,8 @@
                type="radio"
                :name="name"
                :value="id"
+               v-bind="$attrs"
+               v-on="$listeners"
                v-model="model"/>
         <span class="selector-card__icon">
           <span>{{name}}</span>

@@ -34,6 +34,7 @@ export default class App extends Vue {
             })
         ]
     });
+
     selectedElementId: string = this.squadron?.elements[0].id ?? '';
     selectedCategoryId: string = 'factions';
 
