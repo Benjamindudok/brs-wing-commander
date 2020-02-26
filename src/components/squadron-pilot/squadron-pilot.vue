@@ -1,7 +1,7 @@
 <template>
     <li class="squadron-pilot">
       <div class="squadron-pilot__image-container">
-        <img class="squadron-pilot__image" src="/images/pierre-clostermann.jpg" />
+        <div class="placeholder-icon" />
       </div>
       <section class="squadron-pilot__content">
         <h3 class="squadron-pilot__name">
@@ -20,7 +20,7 @@
         </ul>
       </section>
       <span class="squadron-pilot__level">{{pilot.skill}}</span>
-      <button @click="remove">remove</button>
+      <button class="squadron-pilot__remove" @click="remove">&times;</button>
     </li>
 </template>
 
