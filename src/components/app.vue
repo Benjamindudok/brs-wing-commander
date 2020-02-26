@@ -41,14 +41,17 @@
                     <selector-card name="Factions"
                                    id="factions"
                                    v-model="selectedCategoryId">
+                        <div class="placeholder-icon" />
                     </selector-card>
                     <selector-card name="Aircrafts"
                                    id="aircrafts"
                                    v-model="selectedCategoryId">
+                        <div class="placeholder-icon" />
                     </selector-card>
                     <selector-card name="Pilots"
                                    id="pilots"
                                    v-model="selectedCategoryId">
+                        <div class="placeholder-icon" />
                     </selector-card>
                 </selector-container>
             </div>

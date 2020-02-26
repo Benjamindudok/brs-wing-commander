@@ -8,6 +8,7 @@
                v-on="$listeners"
                v-model="model"/>
         <span class="selector-card__icon">
+            <slot></slot>
           <span>{{name}}</span>
         </span>
     </label>

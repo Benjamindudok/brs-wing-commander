@@ -6,6 +6,7 @@
                        :id="pilot.id"
                        v-model="selectedPilotId"
                         @click="selectPilot(pilot.id)">
+            <div class="placeholder-icon" />
         </selector-card>
     </selector-container>
 </template>

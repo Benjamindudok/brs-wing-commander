@@ -22,6 +22,7 @@
     border: 2px solid var(--color-grey-200);
     border-radius: var(--border-radius);
     display: flex;
+    flex-direction: column;
     font-size: 14px;
     font-weight: 500;
     height: 120px;

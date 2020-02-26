@@ -5,6 +5,7 @@
                            :name="faction.name"
                            :id="faction.id"
                            v-model="squadron.faction">
+                <div class="placeholder-icon" />
             </selector-card>
     </selector-container>
 </template>

@@ -5,6 +5,7 @@
                        :name="aircraft.name"
                        :id="aircraft.id"
                        v-model="selectedPlaneId">
+            <div class="placeholder-icon" />
         </selector-card>
     </selector-container>
 </template>
