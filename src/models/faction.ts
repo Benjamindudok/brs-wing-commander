@@ -1,10 +1,10 @@
 export enum Faction {
     unknown = '',
-    GB = 'gb',
-    DE = 'de',
-    US = 'us',
-    JP = 'jp',
-    SV = 'sv'
+    GB = 'Royal Airforce',
+    DE = 'Luftwaffe',
+    US = 'United States Airforce',
+    JP = 'Imperial Airforce',
+    SV = 'Soviet Airforce'
 }
 
 export default Faction;

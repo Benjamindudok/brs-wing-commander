@@ -1,7 +1,9 @@
 export enum CardTypes {
-    trait = 'trait',
-    doctrine = 'doctrine',
-    theatre = 'theatre'
+    trait = 'Trait',
+    doctrine = 'Doctrine',
+    theatre = 'Theatre',
+    ace = 'Ace skill',
+    equipment = 'Equipment'
 }
 
 export default CardTypes;

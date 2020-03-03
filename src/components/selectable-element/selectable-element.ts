@@ -32,9 +32,9 @@ export default class SelectableElement extends Vue {
         this.element.pilots.forEach((p) => {
             points += p.points;
 
-            if (this.squadron.plane)
+            if (this.squadron.aircraft)
             {
-                points += this.squadron.plane.points;
+                points += this.squadron.aircraft.points ?? 0;
             }
         });
 

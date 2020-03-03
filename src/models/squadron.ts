@@ -1,12 +1,12 @@
-import Plane from "@/models/plane";
+import Aircraft from "@/models/aircraft";
 import SquadronElement from "@/models/squadronElement";
 import Faction from "@/models/faction";
 
 export default class Squadron {
-    id: string = '';
+    id: number = 0;
     name: string = '';
     faction: Faction | null = null;
-    plane: Plane | null = null;
+    aircraft: Aircraft | null = null;
     elements: SquadronElement[] = [];
 
     public constructor(init?: Partial<Squadron>) {

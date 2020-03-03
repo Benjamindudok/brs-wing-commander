@@ -14,7 +14,7 @@
             <squadron-pilot v-for="pilot in squadronElement.pilots"
                             :key="pilot.id"
                             :pilot="pilot"
-                            :plane="squadron.plane"
+                            :plane="squadron.aircraft"
                             @remove="removePilot"></squadron-pilot>
         </ul>
     </li>

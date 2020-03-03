@@ -14,6 +14,7 @@ import SelectorContainer from "@/components/selector-container/selector-containe
 import SelectorCard from "@/components/selector-card/selector-card.vue";
 import SquadronMeta from "@/components/squadron-meta/squadron-meta.vue";
 import factionName from "@/utils/filters/faction-name";
+import GoogleSpreadsheetDataProvider from "@/data/google-spreadsheet-data-provider";
 
 import './validation';
 
@@ -33,6 +34,7 @@ Vue.component('pilot-selector', PilotSelector);
 Vue.component('selector-container', SelectorContainer);
 Vue.component('selector-card', SelectorCard);
 Vue.component('squadron-meta', SquadronMeta);
+Vue.component('google-spreadsheet-data-provider', GoogleSpreadsheetDataProvider);
 
 Vue.filter('factionName', factionName);
 

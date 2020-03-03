@@ -16,13 +16,13 @@ export default class SquadronMeta extends Vue {
                 if (p.points) {
                     return a + p.points
                 } else {
-                    if (p.skill === PilotSkillLevels.rookie) {
+                    if (p.level === PilotSkillLevels.rookie) {
                         return a + PilotSkillPoints.rookie;
-                    } else if (p.skill === PilotSkillLevels.regular) {
+                    } else if (p.level === PilotSkillLevels.regular) {
                         return a + PilotSkillPoints.regular;
-                    } else if (p.skill === PilotSkillLevels.veteran) {
+                    } else if (p.level === PilotSkillLevels.veteran) {
                         return a + PilotSkillPoints.veteran;
-                    } else if (p.skill === PilotSkillLevels.ace) {
+                    } else if (p.level === PilotSkillLevels.ace) {
                         return a + PilotSkillPoints.ace;
                     }
                 }
@@ -30,8 +30,8 @@ export default class SquadronMeta extends Vue {
                 return 0;
             }, 0);
 
-            if (this.squadron.plane) {
-                points += element.pilots.length * this.squadron.plane.points;
+            if (this.squadron.aircraft) {
+                points += element.pilots.length * (this.squadron.aircraft.points ?? 0);
             }
         }
 

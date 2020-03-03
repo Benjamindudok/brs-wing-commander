@@ -1,7 +1,6 @@
-﻿import {Component, Prop, Vue, Watch} from 'vue-property-decorator';
+﻿import {Component, Prop, Vue} from 'vue-property-decorator';
 import Squadron from "../../models/squadron";
 import Pilot from "../../models/pilot";
-import pilots from "../../data/pilots";
 import Faction from "@/models/faction";
 
 @Component
@@ -12,11 +11,14 @@ export default class PilotSelector extends Vue {
     @Prop()
     squadron!: Squadron;
 
-    get pilots(): Pilot[] {
-        return (Object.values(pilots) as Pilot[]).filter((p) => p.faction === Faction.unknown || p.faction === this.squadron.faction);
+    @Prop()
+    pilots!: Pilot[];
+
+    get availablePilots(): Pilot[] {
+        return this.pilots.filter((p) => p.faction === Faction.unknown || p.faction === this.squadron.faction);
     }
 
-    selectPilot(id: string) {
+    selectPilot(id: number) {
         if (id) {
             const pilot: Pilot | undefined = this.pilots.find((p) => p.id === id);
             this.$emit('select-pilot', pilot);

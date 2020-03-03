@@ -1,35 +1,36 @@
 ﻿import {Component, Prop, Vue, Watch} from 'vue-property-decorator';
 import Squadron from "@/models/squadron";
-import planes from "../../data/planes";
-import Plane from "../../models/plane";
+import Aircraft from "@/models/aircraft";
 
 @Component
 
 export default class AircraftSelector extends Vue {
-    selectedPlaneId: string = planes.spitfireV.id;
+    selectedPlaneId: number | null = null;
 
     @Prop()
     squadron!: Squadron;
 
-    get aircrafts(): Plane[] {
+    @Prop()
+    aircrafts!: Aircraft[];
+
+    get availableAircrafts(): Aircraft[] {
         if (this.squadron.faction) {
-            return (Object.values(planes) as Plane[]).filter((p) => p.faction === this.squadron.faction);
+            return this.aircrafts.filter((p) => p.faction === this.squadron.faction);
         }
 
-        return (Object.values(planes) as Plane[]);
+        return this.aircrafts;
     }
 
-    mounted(): void
-    {
-        this.selectedPlaneId = this.squadron?.plane?.id ?? '';
+    mounted(): void {
+        this.selectedPlaneId = this.squadron?.aircraft?.id ?? null;
     }
 
     @Watch('selectedPlaneId')
     setSelectedPlane(): void {
         if (this.selectedPlaneId) {
-            const plane: Plane | undefined = this.aircrafts.find((p) => p.id === this.selectedPlaneId);
+            const plane: Aircraft | undefined = this.aircrafts.find((p) => p.id === this.selectedPlaneId);
             if (plane) {
-                this.squadron.plane = new Plane(plane);
+                this.squadron.aircraft = new Aircraft(plane);
             }
         }
     }
