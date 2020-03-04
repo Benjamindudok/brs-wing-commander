@@ -7,28 +7,28 @@
             {{pointsTotal}}
           </h4>
         </li>
-        <li class="squadron-meta__item" v-if="squadron.aircraft">
+        <li class="squadron-meta__item" v-if="aircraft">
           <h4 class="squadron-meta__value">
             <span class="squadron-meta__identifier">Firepower</span>
-            {{squadron.aircraft.firepower}}
+            {{aircraft.firepower}}
           </h4>
         </li>
-        <li class="squadron-meta__item" v-if="squadron.aircraft">
+        <li class="squadron-meta__item" v-if="aircraft">
           <h4 class="squadron-meta__value">
             <span class="squadron-meta__identifier">Agility</span>
-            {{squadron.aircraft.agility}}
+            {{aircraft.agility}}
           </h4>
         </li>
-        <li class="squadron-meta__item" v-if="squadron.aircraft">
+        <li class="squadron-meta__item" v-if="aircraft">
           <h4 class="squadron-meta__value">
             <span class="squadron-meta__identifier">Speed</span>
-            {{squadron.aircraft.speed}}
+            {{aircraft.speed}}
           </h4>
         </li>
-        <li class="squadron-meta__item" v-if="squadron.aircraft">
+        <li class="squadron-meta__item" v-if="aircraft">
           <h4 class="squadron-meta__value">
             <span class="squadron-meta__identifier">Actual Speed</span>
-            {{squadron.aircraft.actualSpeed}} <span class="squadron-meta__suffix">km/h</span>
+            {{aircraft.actualSpeed}} <span class="squadron-meta__suffix">km/h</span>
           </h4>
         </li>
       </ul>

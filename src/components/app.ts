@@ -38,6 +38,14 @@ export default class App extends Vue {
         return this.squadron.aircraftName;
     }
 
+    get currentAircraft(): Function
+    {
+        return (aircrafts: Aircraft[]): Aircraft | null =>
+        {
+            return aircrafts.find((a) => a.id === this.squadron.aircraftId) ?? null;
+        };
+    }
+
     addElement(): void {
         const highestId: number = this.squadron.elements.length > 0 ? Math.max(...this.squadron.elements.map((e) => e.id)) : 0;
         this.squadron.elements.push(new SquadronElement({ id: highestId + 1, name: 'Element name' }));
@@ -67,10 +75,5 @@ export default class App extends Vue {
         this.squadron.aircraftId = aircraft.id;
         this.squadron.aircraftName = aircraft.name;
         this.squadron.aircraftPoints = aircraft.points;
-    }
-
-    currentAircraft(aircrafts: Aircraft[]): Aircraft | null
-    {
-        return aircrafts.find((a) => this.squadron.aircraftId) ?? null;
     }
 }
