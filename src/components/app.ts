@@ -5,7 +5,6 @@ import SquadronElement from "@/models/squadronElement";
 import Pilot from "@/models/pilot";
 import SquadronPilot from "@/models/squadronPilot";
 import Aircraft from "@/models/aircraft";
-import pilot from "@/models/pilot";
 
 @Component
 export default class App extends Vue {
