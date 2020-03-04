@@ -69,7 +69,7 @@
                                        @select-aircraft="addAircraft"></aircraft-selector>
 
                     <pilot-selector v-if="selectedCategoryId === 'pilots'"
-                                    :faction="squadron.faction"
+                                    :squadron="squadron"
                                     :pilots="pilots"
                                     @select-pilot="addPilot($event)"></pilot-selector>
                 </div>
