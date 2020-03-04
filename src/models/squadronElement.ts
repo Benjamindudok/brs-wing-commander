@@ -1,10 +1,9 @@
-import Pilot from "@/models/pilot";
-import {uuid} from "uuidv4";
+import SquadronPilot from "@/models/squadronPilot";
 
 export default class SquadronElement {
-    id: string = uuid();
+    id: number = 0;
     name: string = '';
-    pilots: Pilot[] = [];
+    pilots: SquadronPilot[] = [];
 
     public constructor(init?: Partial<SquadronElement>) {
         Object.assign(this, init);

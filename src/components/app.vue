@@ -1,5 +1,5 @@
 <template>
-    <google-spreadsheet-data-provider v-slot="{ planes, pilots, cards }">
+    <google-spreadsheet-data-provider v-slot="{ aircrafts, pilots, cards }">
         <div id="app" :class="classes">
             <header class="navbar"></header>
 
@@ -17,6 +17,7 @@
                     <selectable-element v-for="element in squadron.elements"
                                         :key="element.id"
                                         :squadron="squadron"
+                                        :aircraft="currentAircraft(aircrafts)"
                                         :element="element"
                                         :is-active="selectedElementId === element.id"
                                         @click.native="selectedElementId = element.id">
@@ -28,10 +29,10 @@
 
                 <section class="pilots">
                     <squadron-element v-if="currentElement"
-                                      :key="currentElement ? currentElement.id : ''"
-                                      :squadron="squadron"
+                                      :aircraft-name="squadron.aircraftName"
+                                      :aircraft-points="squadron.aircraftPoints"
                                       :squadron-element="currentElement"
-                                      @remove="removeElement"
+                                      @remove-element="removeElement"
                                       @remove-pilot="removePilot">
                     </squadron-element>
                 </section>
@@ -62,17 +63,19 @@
                     <faction-selector v-if="selectedCategoryId === 'factions'" :squadron="squadron"></faction-selector>
 
                     <aircraft-selector v-if="selectedCategoryId === 'aircrafts'"
-                                       :aircrafts="planes"
-                                       :squadron="squadron"></aircraft-selector>
+                                       :current-aircraft="squadron.aircraft"
+                                       :faction="squadron.faction"
+                                       :aircrafts="aircrafts"
+                                       @select-aircraft="addAircraft"></aircraft-selector>
 
                     <pilot-selector v-if="selectedCategoryId === 'pilots'"
-                                    :squadron="squadron"
+                                    :faction="squadron.faction"
                                     :pilots="pilots"
                                     @select-pilot="addPilot($event)"></pilot-selector>
                 </div>
 
 
-                <squadron-meta :squadron="squadron"></squadron-meta>
+                <squadron-meta :squadron="squadron" :aircraft="currentAircraft(aircrafts)"></squadron-meta>
             </main>
 
             <footer class="footer">

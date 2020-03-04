@@ -2,11 +2,15 @@ import {Component, Prop, Vue} from 'vue-property-decorator';
 import Squadron from "@/models/squadron";
 import PilotSkillLevels from "@/models/pilotSkillLevels";
 import PilotSkillPoints from "@/models/pilotSkillPoints";
+import Aircraft from "@/models/aircraft";
 
 @Component
 export default class SquadronMeta extends Vue {
     @Prop()
     squadron!: Squadron;
+
+    @Prop()
+    aircraft!: Aircraft | null;
 
     get pointsTotal(): number {
         let points: number = 0;
@@ -30,8 +34,8 @@ export default class SquadronMeta extends Vue {
                 return 0;
             }, 0);
 
-            if (this.squadron.aircraft) {
-                points += element.pilots.length * (this.squadron.aircraft.points ?? 0);
+            if (this.aircraft) {
+                points += element.pilots.length * (this.aircraft.points ?? 0);
             }
         }
 

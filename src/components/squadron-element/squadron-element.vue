@@ -6,7 +6,7 @@
 
         <brs-button variant="error"
                     type="text"
-                    @click="remove">
+                    @click.native="remove">
             remove element
         </brs-button>
 
@@ -14,7 +14,8 @@
             <squadron-pilot v-for="pilot in squadronElement.pilots"
                             :key="pilot.id"
                             :pilot="pilot"
-                            :plane="squadron.aircraft"
+                            :aircraft-name="aircraftName"
+                            :aircraft-points="aircraftPoints"
                             @remove="removePilot"></squadron-pilot>
         </ul>
     </li>

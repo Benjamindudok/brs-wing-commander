@@ -15,7 +15,7 @@ export default class GoogleSpreadsheetDataProvider extends Vue {
     scopes = "https://www.googleapis.com/auth/spreadsheets.readonly";
 
     cards: Card[] = [];
-    planes: Aircraft[] = [];
+    aircrafts: Aircraft[] = [];
     pilots: Pilot[] = [];
 
     handleClientLoad() {
@@ -56,7 +56,7 @@ export default class GoogleSpreadsheetDataProvider extends Vue {
     async getAircraftData(): Promise<void> {
         const rows: string[][] = await this.getDataFromSpreadsheet('\'Planes\'!A2:L');
         rows.map((r, id) => {
-            this.planes.push(new Aircraft({
+            this.aircrafts.push(new Aircraft({
                 id: id,
                 name: r[0],
                 faction: r[1] as Faction,
@@ -90,7 +90,7 @@ export default class GoogleSpreadsheetDataProvider extends Vue {
                 firepowerModifier: Number(r[4]),
                 agilityModifier: Number(r[5]),
                 speedModifier: Number(r[6]),
-                points: Number(r[7]),
+                points: Number(r[8]),
             }));
         });
     }
@@ -118,6 +118,6 @@ export default class GoogleSpreadsheetDataProvider extends Vue {
     }
 
     render(h: CreateElement): VNode {
-        return this.$scopedSlots.default!({planes: this.planes, cards: this.cards, pilots: this.pilots}) as any;
+        return this.$scopedSlots.default!({aircrafts: this.aircrafts, cards: this.cards, pilots: this.pilots}) as any;
     }
 }

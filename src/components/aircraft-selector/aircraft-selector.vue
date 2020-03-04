@@ -1,10 +1,10 @@
 ﻿<template>
     <selector-container title="Aircraft">
-        <selector-card v-for="aircraft in aircrafts"
+        <selector-card v-for="aircraft in availableAircrafts"
                        :key="aircraft.id"
                        :name="aircraft.name"
                        :id="aircraft.id"
-                       v-model="selectedPlaneId">
+                       v-model="selectedAircraftId">
             <div class="placeholder-icon" />
         </selector-card>
     </selector-container>

@@ -8,11 +8,10 @@ export default class SquadronPilot extends Vue {
     pilot!: Pilot;
 
     @Prop()
-    plane!: Aircraft;
+    aircraftName!: string | null;
 
-    get points(): number {
-        return this.pilot.points;
-    }
+    @Prop()
+    aircraftPoints!: number | null;
 
     @Emit('remove')
     remove(): number {

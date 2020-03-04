@@ -1,6 +1,6 @@
 ﻿<template>
     <selector-container title="Pilots">
-        <selector-card v-for="pilot in pilots"
+        <selector-card v-for="pilot in availablePilots"
                        :key="pilot.id"
                        :name="pilot.name"
                        :id="pilot.id"

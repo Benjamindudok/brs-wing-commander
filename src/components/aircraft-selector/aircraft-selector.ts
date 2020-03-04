@@ -1,36 +1,39 @@
-﻿import {Component, Prop, Vue, Watch} from 'vue-property-decorator';
-import Squadron from "@/models/squadron";
+﻿import {Component, Emit, Prop, Vue, Watch} from 'vue-property-decorator';
 import Aircraft from "@/models/aircraft";
+import Faction from "@/models/faction";
 
 @Component
 
 export default class AircraftSelector extends Vue {
-    selectedPlaneId: number | null = null;
+    selectedAircraftId: number | null = null;
 
     @Prop()
-    squadron!: Squadron;
+    currentAircraftId!: number;
+
+    @Prop()
+    faction!: Faction;
 
     @Prop()
     aircrafts!: Aircraft[];
 
     get availableAircrafts(): Aircraft[] {
-        if (this.squadron.faction) {
-            return this.aircrafts.filter((p) => p.faction === this.squadron.faction);
+        if (this.faction) {
+            return this.aircrafts.filter((p) => p.faction === this.faction);
         }
 
         return this.aircrafts;
     }
 
     mounted(): void {
-        this.selectedPlaneId = this.squadron?.aircraft?.id ?? null;
+        this.selectedAircraftId = this.currentAircraftId ?? null;
     }
 
-    @Watch('selectedPlaneId')
+    @Watch('selectedAircraftId')
     setSelectedPlane(): void {
-        if (this.selectedPlaneId) {
-            const plane: Aircraft | undefined = this.aircrafts.find((p) => p.id === this.selectedPlaneId);
+        if (this.selectedAircraftId) {
+            const plane: Aircraft | undefined = this.aircrafts.find((p) => p.id === this.selectedAircraftId);
             if (plane) {
-                this.squadron.aircraft = new Aircraft(plane);
+                this.$emit('select-aircraft', new Aircraft(plane));
             }
         }
     }

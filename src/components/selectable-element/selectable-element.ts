@@ -1,11 +1,15 @@
 import {Component, Prop, Vue} from 'vue-property-decorator';
 import SquadronElement from "@/models/squadronElement";
 import Squadron from "@/models/squadron";
+import Aircraft from "@/models/aircraft";
 
 @Component
 export default class SelectableElement extends Vue {
     @Prop()
     squadron!: Squadron;
+
+    @Prop()
+    aircraft!: Aircraft | null;
 
     @Prop()
     element!: SquadronElement;
@@ -32,9 +36,9 @@ export default class SelectableElement extends Vue {
         this.element.pilots.forEach((p) => {
             points += p.points;
 
-            if (this.squadron.aircraft)
+            if (this.aircraft)
             {
-                points += this.squadron.aircraft.points ?? 0;
+                points += this.aircraft.points ?? 0;
             }
         });
 

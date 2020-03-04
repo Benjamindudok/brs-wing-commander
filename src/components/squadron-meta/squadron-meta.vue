@@ -9,8 +9,8 @@
         </li>
         <li class="squadron-meta__item" v-if="squadron.aircraft">
           <h4 class="squadron-meta__value">
-            <span class="squadron-meta__identifier">Attack Power</span>
-            {{squadron.aircraft.power}}
+            <span class="squadron-meta__identifier">Firepower</span>
+            {{squadron.aircraft.firepower}}
           </h4>
         </li>
         <li class="squadron-meta__item" v-if="squadron.aircraft">

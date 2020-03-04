@@ -1,5 +1,4 @@
 ﻿import {Component, Prop, Vue} from 'vue-property-decorator';
-import Squadron from "../../models/squadron";
 import Pilot from "../../models/pilot";
 import Faction from "@/models/faction";
 
@@ -9,13 +8,13 @@ export default class PilotSelector extends Vue {
     selectedPilotId: string = '';
 
     @Prop()
-    squadron!: Squadron;
+    faction!: Faction;
 
     @Prop()
     pilots!: Pilot[];
 
     get availablePilots(): Pilot[] {
-        return this.pilots.filter((p) => p.faction === Faction.unknown || p.faction === this.squadron.faction);
+        return this.pilots.filter((p) => p.faction === Faction.unknown || p.faction === this.faction);
     }
 
     selectPilot(id: number) {
