@@ -5,11 +5,15 @@ import SquadronElement from "@/models/squadronElement";
 import Pilot from "@/models/pilot";
 import SquadronPilot from "@/models/squadronPilot";
 import Aircraft from "@/models/aircraft";
+import pilot from "@/models/pilot";
 
 @Component
 export default class App extends Vue {
     squadron: Squadron = new Squadron({
-        name: 'Squad name here'
+        name: 'Squad name here',
+        elements: [
+            new SquadronElement({ id: 0, name: 'Element name' })
+        ]
     });
 
     selectedElementId: number = this.squadron?.elements[0]?.id ?? 0;
@@ -64,8 +68,8 @@ export default class App extends Vue {
     }
 
     removePilot(id: number): void {
-        const pilotIndex: number | null = this.currentElement?.pilots.findIndex((p) => p.id === id) ?? null;
-        if (pilotIndex) {
+        const pilotIndex: number = this.currentElement?.pilots.findIndex((p) => p.id === id) ?? -1;
+        if (pilotIndex !== -1) {
             this.currentElement?.pilots.splice(pilotIndex, 1);
         }
     }
