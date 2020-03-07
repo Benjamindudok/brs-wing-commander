@@ -12,9 +12,21 @@
   text-align: left;
   width: 100%;
 
+  &__header {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__remove {
+    margin-top: 6px;
+  }
+
   &__title {
-    font-size: rem-calc(32px);
+    color: var(--color-shade-light);
     margin: 0;
+    max-width: 470px;
     width: 100%;
   }
 

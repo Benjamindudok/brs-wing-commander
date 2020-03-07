@@ -1,14 +1,19 @@
 <template>
     <li class="squadron-element">
-        <editable-element tag="h3"
-                          :content="squadronElement.name"
-                          @update="squadronElement.name = $event"></editable-element>
+        <div class="squadron-element__header">
+            <editable-element tag="h3"
+                              class="squadron-element__title"
+                              :content="squadronElement.name"
+                              @update="squadronElement.name = $event"></editable-element>
+            <brs-button v-if="index > 0"
+                        class="squadron-element__remove"
+                        variant="error"
+                        type="text"
+                        @click.native="remove">
+                remove element
+            </brs-button>
+        </div>
 
-        <brs-button variant="error"
-                    type="text"
-                    @click.native="remove">
-            remove element
-        </brs-button>
 
         <ul class="squadron-element__pilots">
             <squadron-pilot v-for="pilot in squadronElement.pilots"

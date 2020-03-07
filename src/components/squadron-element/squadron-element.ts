@@ -1,9 +1,11 @@
 import {Component, Emit, Prop, Vue} from 'vue-property-decorator';
 import SquadronElement from "@/models/squadronElement";
-import Aircraft from "@/models/aircraft";
 
 @Component
 export default class SquadronElementComponent extends Vue {
+    @Prop()
+    index!: number;
+
     @Prop()
     squadronElement!: SquadronElement;
 

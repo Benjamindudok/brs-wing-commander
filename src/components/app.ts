@@ -33,6 +33,10 @@ export default class App extends Vue {
         return this.squadron.elements.find((e) => e.id === this.selectedElementId) ?? null;
     }
 
+    get currentElementIndex(): number | null {
+        return this.squadron.elements.findIndex((e) => e.id === this.selectedElementId) ?? 0;
+    }
+
     get selectedFactionId(): string | null {
         return this.squadron.faction ?? null;
     }

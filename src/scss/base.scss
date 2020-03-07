@@ -1,12 +1,18 @@
 @import './reference';
 @import url('https://fonts.googleapis.com/css?family=Montserrat:500,700,900&display=swap');
 
+:root {
+  --background-pattern-size: 40px;
+  --background-pattern-width: 2px;
+  --background-pattern-color: var(--color-accent-light);
+}
+
 * {
   box-sizing: border-box;
 }
 
 html {
-  background: var(--color-white);
+  background: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-family);
   font-size: 16px;
@@ -29,6 +35,7 @@ body {
 p {margin-bottom: 1.15rem;}
 
 h1, h2, h3, h4, h5 {
+  color: var(--color-text-header);
   margin: 2.75rem 0 1.05rem;
   font-family: var(--font-family-header);
   font-weight: 700;
@@ -64,7 +71,7 @@ a {
 }
 
 .placeholder-icon {
-  background: var(--color-grey-200);
+  background: var(--color-primary);
   border-radius: 50%;
   display: block;
   flex: 0 0 auto;

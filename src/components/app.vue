@@ -29,6 +29,7 @@
 
                 <section class="pilots">
                     <squadron-element v-if="currentElement"
+                                      :index="currentElementIndex"
                                       :aircraft-name="squadron.aircraftName"
                                       :aircraft-points="squadron.aircraftPoints"
                                       :squadron-element="currentElement"

@@ -2,10 +2,11 @@
 
 .squadron-pilot {
   align-items: center;
-  background: var(--color-grey-100);
+  background: var(--color-primary-0);
+  border: 3px solid var(--color-background-alternate);
+  border-bottom-width: 1px;
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 5px;
   padding: 10px;
   position: relative;
   width: 100%;
@@ -73,8 +74,10 @@
   }
 
   + .squadron-pilot {
+    border-top-width: 2px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+    border-bottom-width: 1px;
   }
 
   &:first-child {
@@ -85,6 +88,7 @@
   &:last-child {
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
+    border-bottom-width: 3px;
     margin-bottom: 0;
   }
 }

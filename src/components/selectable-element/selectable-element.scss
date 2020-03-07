@@ -1,26 +1,32 @@
 @import '../../scss/reference';
 
 .selectable-element {
-  align-items: flex-end;
-  background: var(--color-grey-100);
-  border: 2px solid var(--color-border);
-  border-radius: var(--border-radius);
+  align-items: center;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: calc(var(--border-radius) / 2);
+  color: var(--color-shade-light);
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   height: 82px;
   margin: 5px;
-  overflow: hidden;
+  opacity: 0.2;
   padding: 10px 5px;
   position: relative;
   transition: $transition-default;
   width: 82px;
 
+  &:hover {
+    opacity: 0.4;
+  }
+
   &__name {
     display: block;
     font-size: rem-calc(12);
-    max-width: 100%;
+    flex: 0 0 auto;
+    width: 72px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -29,11 +35,17 @@
   &__points {
     font-size: rem-calc(18);
     font-weight: 700;
+    margin: 0 0 3px;
   }
 
   &--is-active {
-    background: var(--color-grey-200);
-    border-color: var(--color-highlight);
+    border-left-color: var(--color-accent-dark);
+    border-left-width: 3px;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 0.6;
+    }
   }
 
   &--is-placeholder {
