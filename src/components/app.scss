@@ -61,6 +61,7 @@
 .selector-items,
 .selector-categories {
   grid-column: auto / span 4;
+  position: relative;
 }
 
 .name,
@@ -88,6 +89,7 @@
 
 .elements {
   order: 3;
+  padding-top: 57px;
 
   @include respond-to(large) {
     grid-row: auto / span 2;

@@ -14,6 +14,8 @@ export default class GoogleSpreadsheetDataProvider extends Vue {
     discoveryDocs = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
     scopes = "https://www.googleapis.com/auth/spreadsheets.readonly";
 
+    loading = true;
+
     cards: Card[] = [];
     aircrafts: Aircraft[] = [];
     pilots: Pilot[] = [];
@@ -99,9 +101,9 @@ export default class GoogleSpreadsheetDataProvider extends Vue {
         });
     }
 
-    getPublicData(): { aircrafts: Aircraft[], cards: Card[], pilots: Pilot[] }
+    getPublicData(): { aircrafts: Aircraft[], cards: Card[], pilots: Pilot[], loading: boolean }
     {
-        return { aircrafts: this.aircrafts, cards: this.cards, pilots: this.pilots };
+        return { aircrafts: this.aircrafts, cards: this.cards, pilots: this.pilots, loading: this.loading };
     }
 
     handleClientLoad() {
@@ -119,6 +121,7 @@ export default class GoogleSpreadsheetDataProvider extends Vue {
         await this.getAircraftData();
         await this.getPilotData();
 
+        this.loading = false;
         this.$emit('loaded', this.getPublicData());
     }
 

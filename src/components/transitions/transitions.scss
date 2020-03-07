@@ -1,0 +1,136 @@
+@import '../../scss/_reference';
+
+$slide-opacity: 0;
+$slide-delta: 75%;
+$slide-duration: .4s;
+
+.slide-left,
+.slide-right,
+.slide-up,
+.slide-down {
+    &--enter {
+        opacity: $slide-opacity;
+        transform: translate3d($slide-delta, 0, 0);
+    }
+
+    &--enter-active {
+        transition: all $slide-duration $transition-default-smoothing;
+    }
+
+    &--leave-active {
+        transition: all $slide-duration $transition-default-smoothing;
+    }
+
+    &--leave-to {
+        opacity: $slide-opacity;
+        transform: translate3d(-$slide-delta, 0, 0);
+    }
+}
+
+.slide-right {
+    &--enter {
+        transform: translate3d(-$slide-delta, 0, 0);
+    }
+
+    &--leave-to {
+        transform: translate3d($slide-delta, 0, 0);
+    }
+}
+
+.slide-up {
+    &--enter {
+        transform: translate3d(0, $slide-delta, 0);
+    }
+
+    &--leave-to {
+        transform: translate3d(0, -$slide-delta, 0);
+    }
+}
+
+.slide-down {
+    &--enter {
+        transform: translate3d(0, -$slide-delta, 0);
+    }
+
+    &--leave-to {
+        transform: translate3d(0, $slide-delta, 0);
+    }
+}
+
+$slide-from-delta: 10%;
+$slide-from-duration: .2s;
+
+.slide-from-left,
+.slide-from-right,
+.slide-from-up,
+.slide-from-down {
+    &--enter {
+        opacity: $slide-opacity;
+        transform: translate3d(-$slide-from-delta, 0, 0);
+    }
+
+    &--enter-active {
+        position: absolute;
+        transition: all $slide-from-duration $transition-default-smoothing;
+    }
+
+    &--leave-active {
+        position: absolute;
+        transition: all $slide-from-duration $transition-default-smoothing;
+    }
+
+    &--leave-to {
+        opacity: $slide-opacity;
+        transform: translate3d(-$slide-from-delta, 0, 0);
+    }
+}
+
+.slide-from-right {
+    &--enter {
+        transform: translate3d($slide-from-delta, 0, 0);
+    }
+
+    &--leave-to {
+        transform: translate3d($slide-from-delta, 0, 0);
+    }
+}
+
+.slide-from-up {
+    &--enter {
+        transform: translate3d(0, -$slide-from-delta, 0);
+    }
+
+    &--leave-to {
+        transform: translate3d(0, -$slide-from-delta, 0);
+    }
+}
+
+.slide-from-down {
+    &--enter {
+        transform: translate3d(0, $slide-from-delta, 0);
+    }
+
+    &--leave-to {
+        transform: translate3d(0, $slide-from-delta, 0);
+    }
+}
+
+$fadeDuration: .3s;
+
+.fade {
+    &--enter {
+        opacity: 0;
+    }
+
+    &--enter-active {
+        transition: opacity $fadeDuration $transition-default-smoothing;
+    }
+
+    &--leave-active {
+        transition: opacity $fadeDuration $transition-default-smoothing;
+    }
+
+    &--leave-to {
+        opacity: 0;
+    }
+}

@@ -17,12 +17,14 @@
 
 
         <ul class="squadron-element__pilots">
-            <squadron-pilot v-for="pilot in squadronElement.pilots"
-                            :key="pilot.id"
-                            :pilot="pilot"
-                            :aircraft-name="aircraftName"
-                            :aircraft-points="aircraftPoints"
-                            @remove="removePilot"></squadron-pilot>
+            <brs-transition transition-name="slide-from-left" :appear="true" :group="true">
+                <squadron-pilot v-for="pilot in squadronElement.pilots"
+                                :key="pilot.id"
+                                :pilot="pilot"
+                                :aircraft-name="aircraftName"
+                                :aircraft-points="aircraftPoints"
+                                @remove="removePilot"></squadron-pilot>
+            </brs-transition>
         </ul>
     </li>
 </template>

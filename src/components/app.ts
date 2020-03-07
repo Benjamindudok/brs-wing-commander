@@ -21,12 +21,7 @@ export default class App extends Vue {
 
     get classes(): Record<string, boolean> {
         return {
-            'app': true,
-            'app--luftwaffe': this.squadron.faction === Faction.DE,
-            'app--raf': this.squadron.faction === Faction.GB,
-            'app--usaf': this.squadron.faction === Faction.US,
-            'app--saf': this.squadron.faction === Faction.SV,
-            'app--ija': this.squadron.faction === Faction.JP
+            'app': true
         }
     }
 
@@ -89,7 +84,7 @@ export default class App extends Vue {
             // get aircraft from aircraft data by id
             const aircraftToRestore: Aircraft | undefined = aircrafts.find((a) => this.$route.params.aircraftId && a.id === Number(this.$route.params.aircraftId));
 
-            // restore elements
+            // restore element(s)
             const elements: SquadronElement[] = (Array.isArray(this.$route.query.element))
                 ? (this.$route.query.element as string[]).map((e: string, index) => this.restoreSquadronElement(index, e.split(','), pilots))
                 : [this.restoreSquadronElement(0, this.$route.query.element.split(','), pilots)];

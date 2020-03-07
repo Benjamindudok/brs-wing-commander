@@ -11,15 +11,16 @@
     display: none;
 
     &:checked ~ .selector-card__icon {
-      border-color: var(--color-accent-light);
-      color: var(--color-accent-light);
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: var(--color-background);
     }
   }
 
   &__icon {
     align-items: center;
-    background: var(--color-background);
-    border: 2px solid var(--color-border);
+    background: transparent;
+    border: 2px solid var(--color-icon);
     border-radius: var(--border-radius);
     display: flex;
     flex-direction: column;
