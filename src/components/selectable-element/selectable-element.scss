@@ -12,14 +12,14 @@
   justify-content: center;
   height: 82px;
   margin: 5px;
-  opacity: 0.2;
+  opacity: 0.5;
   padding: 10px 5px;
   position: relative;
   transition: $transition-default;
   width: 82px;
 
   &:hover {
-    opacity: 0.4;
+    opacity: 0.8;
   }
 
   &__name {
@@ -41,10 +41,10 @@
   &--is-active {
     border-left-color: var(--color-accent-dark);
     border-left-width: 3px;
-    opacity: 0.6;
+    opacity: 1;
 
     &:hover {
-      opacity: 0.6;
+      opacity: 1;
     }
   }
 

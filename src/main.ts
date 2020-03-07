@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import VueRouter from 'vue-router'
 import App from './components/app.vue'
 import PortalVue from 'portal-vue';
 import SquadronElement from "@/components/squadron-element/squadron-element.vue";
@@ -19,6 +20,7 @@ import GoogleSpreadsheetDataProvider from "@/data/google-spreadsheet-data-provid
 import './validation';
 
 Vue.use(PortalVue);
+Vue.use(VueRouter);
 
 Vue.config.productionTip = false;
 
@@ -38,6 +40,16 @@ Vue.component('google-spreadsheet-data-provider', GoogleSpreadsheetDataProvider)
 
 Vue.filter('factionName', factionName);
 
+const router = new VueRouter({
+    routes: [
+        {
+            path: '/:name?/:faction?/:aircraftId?',
+            component: App
+        }
+    ]
+})
+
 new Vue({
-    render: h => h(App)
+    render: h => h('router-view'),
+    router
 }).$mount('#app');

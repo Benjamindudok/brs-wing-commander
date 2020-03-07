@@ -18,39 +18,17 @@ export default class GoogleSpreadsheetDataProvider extends Vue {
     aircrafts: Aircraft[] = [];
     pilots: Pilot[] = [];
 
-    handleClientLoad() {
-        gapi.load('client', this.initClient);
-    }
+    created(): void {
+        if (!document.querySelector('script[src="https://apis.google.com/js/api.js"]')) {
+            const tag = document.createElement('script');
+            tag.src = "https://apis.google.com/js/api.js";
+            tag.onload = this.handleClientLoad;
 
-    async initClient() {
-        await gapi.client.init({
-            apiKey: this.apiKey,
-            discoveryDocs: this.discoveryDocs,
-            scope: this.scopes
-        });
-
-        await this.getCardsData();
-        this.getAircraftData();
-        this.getPilotData();
-    }
-
-    async getCardsData(): Promise<void> {
-        const rows: string[][] = await this.getDataFromSpreadsheet('\'Cards\'!A2:H');
-        rows.map((r, id) => {
-            this.cards.push(new Card({
-                id: id,
-                title: r[0],
-                type: r[1] as CardTypes,
-                description: r[2],
-                playDescription: r[3],
-                doDescription: r[4],
-                bonus: [],
-                retention: r[6] as RetentionTypes,
-                reactionary: r[7] === "Yes"
-            }));
-        });
-
-        console.log(this.cards);
+            const firstScriptTag = document.getElementsByTagName('script')[0];
+            if (firstScriptTag && firstScriptTag.parentNode) {
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            }
+        }
     }
 
     async getAircraftData(): Promise<void> {
@@ -78,6 +56,32 @@ export default class GoogleSpreadsheetDataProvider extends Vue {
         });
     }
 
+    async getCardsData(): Promise<void> {
+        const rows: string[][] = await this.getDataFromSpreadsheet('\'Cards\'!A2:H');
+        rows.map((r, id) => {
+            this.cards.push(new Card({
+                id: id,
+                title: r[0],
+                type: r[1] as CardTypes,
+                description: r[2],
+                playDescription: r[3],
+                doDescription: r[4],
+                bonus: [],
+                retention: r[6] as RetentionTypes,
+                reactionary: r[7] === "Yes"
+            }));
+        });
+    }
+
+    async getDataFromSpreadsheet(range: string): Promise<string[][]> {
+        const response = await gapi.client.sheets.spreadsheets.values.get({
+            spreadsheetId: '1nOHcmPBNfDJIoztzWiT4pTnouSe-PxGzHfrO8kTPRCM',
+            range
+        });
+
+        return response.result.values ?? [];
+    }
+
     async getPilotData(): Promise<void> {
         const rows: string[][] = await this.getDataFromSpreadsheet('\'Pilots\'!A2:I');
         rows.map((r, id) => {
@@ -95,29 +99,30 @@ export default class GoogleSpreadsheetDataProvider extends Vue {
         });
     }
 
-    async getDataFromSpreadsheet(range: string): Promise<string[][]> {
-        const response = await gapi.client.sheets.spreadsheets.values.get({
-            spreadsheetId: '1nOHcmPBNfDJIoztzWiT4pTnouSe-PxGzHfrO8kTPRCM',
-            range
-        });
-
-        return response.result.values ?? [];
+    getPublicData(): { aircrafts: Aircraft[], cards: Card[], pilots: Pilot[] }
+    {
+        return { aircrafts: this.aircrafts, cards: this.cards, pilots: this.pilots };
     }
 
-    created(): void {
-        if (!document.querySelector('script[src="https://apis.google.com/js/api.js"]')) {
-            const tag = document.createElement('script');
-            tag.src = "https://apis.google.com/js/api.js";
-            tag.onload = this.handleClientLoad;
+    handleClientLoad() {
+        gapi.load('client', this.initClient);
+    }
 
-            const firstScriptTag = document.getElementsByTagName('script')[0];
-            if (firstScriptTag && firstScriptTag.parentNode) {
-                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-            }
-        }
+    async initClient() {
+        await gapi.client.init({
+            apiKey: this.apiKey,
+            discoveryDocs: this.discoveryDocs,
+            scope: this.scopes
+        });
+
+        await this.getCardsData();
+        await this.getAircraftData();
+        await this.getPilotData();
+
+        this.$emit('loaded', this.getPublicData());
     }
 
     render(h: CreateElement): VNode {
-        return this.$scopedSlots.default!({aircrafts: this.aircrafts, cards: this.cards, pilots: this.pilots}) as any;
+        return this.$scopedSlots.default!(this.getPublicData()) as any;
     }
 }

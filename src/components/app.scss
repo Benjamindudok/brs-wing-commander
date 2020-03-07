@@ -96,5 +96,8 @@
 }
 
 .actions {
+  align-items: flex-end;
+  display: flex;
+  justify-content: flex-end;
   order: 0;
 }

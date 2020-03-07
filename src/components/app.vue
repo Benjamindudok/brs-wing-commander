@@ -1,5 +1,5 @@
 <template>
-    <google-spreadsheet-data-provider v-slot="{ aircrafts, pilots, cards }">
+    <google-spreadsheet-data-provider v-slot="{ aircrafts, pilots, cards }" @loaded="restore">
         <div id="app" :class="classes">
             <header class="navbar"></header>
 
@@ -7,11 +7,14 @@
 
                 <section class="name">
                     <editable-element tag="h1"
+                                      :key="squadron.name"
                                       :content="squadron.name"
                                       @update="squadron.name = $event"></editable-element>
                 </section>
 
-                <div class="actions"></div>
+                <div class="actions">
+                    <brs-button type="ghost" @click="save()">get shareable link</brs-button>
+                </div>
 
                 <section class="elements">
                     <selectable-element v-for="element in squadron.elements"

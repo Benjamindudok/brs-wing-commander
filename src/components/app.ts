@@ -5,13 +5,14 @@ import SquadronElement from "@/models/squadronElement";
 import Pilot from "@/models/pilot";
 import SquadronPilot from "@/models/squadronPilot";
 import Aircraft from "@/models/aircraft";
+import Card from "@/models/card";
 
 @Component
 export default class App extends Vue {
     squadron: Squadron = new Squadron({
         name: 'Squad name here',
         elements: [
-            new SquadronElement({ id: 0, name: 'Element name' })
+            new SquadronElement({id: 0, name: 'Element name'})
         ]
     });
 
@@ -45,22 +46,21 @@ export default class App extends Vue {
         return this.squadron.aircraftName;
     }
 
-    get currentAircraft(): Function
-    {
-        return (aircrafts: Aircraft[]): Aircraft | null =>
-        {
+    get currentAircraft(): Function {
+        return (aircrafts: Aircraft[]): Aircraft | null => {
             return aircrafts.find((a) => a.id === this.squadron.aircraftId) ?? null;
         };
     }
 
-    addElement(): void {
-        const highestId: number = this.squadron.elements.length > 0 ? Math.max(...this.squadron.elements.map((e) => e.id)) : 0;
-        this.squadron.elements.push(new SquadronElement({ id: highestId + 1, name: 'Element name' }));
+    addAircraft(aircraft: Aircraft): void {
+        this.squadron.aircraftId = aircraft.id;
+        this.squadron.aircraftName = aircraft.name;
+        this.squadron.aircraftPoints = aircraft.points;
     }
 
-    removeElement(id: number) {
-        const elementIndex: number = this.squadron.elements.findIndex((e) => e.id === id);
-        this.squadron.elements.splice(elementIndex, 1);
+    addElement(): void {
+        const highestId: number = this.squadron.elements.length > 0 ? Math.max(...this.squadron.elements.map((e) => e.id)) : 0;
+        this.squadron.elements.push(new SquadronElement({id: highestId + 1, name: 'Element name'}));
     }
 
     addPilot(pilot: Pilot): void {
@@ -70,6 +70,11 @@ export default class App extends Vue {
         }
     }
 
+    removeElement(id: number) {
+        const elementIndex: number = this.squadron.elements.findIndex((e) => e.id === id);
+        this.squadron.elements.splice(elementIndex, 1);
+    }
+
     removePilot(id: number): void {
         const pilotIndex: number = this.currentElement?.pilots.findIndex((p) => p.id === id) ?? -1;
         if (pilotIndex !== -1) {
@@ -77,10 +82,47 @@ export default class App extends Vue {
         }
     }
 
-    addAircraft(aircraft: Aircraft): void
-    {
-        this.squadron.aircraftId = aircraft.id;
-        this.squadron.aircraftName = aircraft.name;
-        this.squadron.aircraftPoints = aircraft.points;
+    restore({aircrafts, pilots, cards}: { aircrafts: Aircraft[], pilots: Pilot[], cards: Card[] }): void {
+        // when url has the name parameter
+        // we assume it is a saved url, so we try to rebuild the squadron
+        if (this.$route.params.name) {
+            // get aircraft from aircraft data by id
+            const aircraftToRestore: Aircraft | undefined = aircrafts.find((a) => this.$route.params.aircraftId && a.id === Number(this.$route.params.aircraftId));
+
+            // restore elements
+            const elements: SquadronElement[] = (Array.isArray(this.$route.query.element))
+                ? (this.$route.query.element as string[]).map((e: string, index) => this.restoreSquadronElement(index, e.split(','), pilots))
+                : [this.restoreSquadronElement(0, this.$route.query.element.split(','), pilots)];
+
+            this.squadron = new Squadron({
+                name: this.$route.params.name ?? 'New squadron',
+                faction: this.$route.params.faction as Faction,
+                aircraftId: Number(this.$route.params.aircraftId),
+                aircraftName: aircraftToRestore?.name ?? null,
+                aircraftPoints: aircraftToRestore?.points ?? null,
+                elements
+            });
+        }
+    }
+
+    restoreSquadronElement(id: number, elementData: string[], pilots: Pilot[]): SquadronElement {
+        return new SquadronElement({
+            id,
+            name: elementData[0],
+            pilots: elementData.slice(1).map((idAsString, index) => {
+                const pilotId: number = Number(idAsString);
+                const matchedPilot: Pilot | undefined = pilots.find((p) => p.id === pilotId);
+                return new SquadronPilot({...matchedPilot, id: index, pilotId: matchedPilot?.id ?? null});
+            })
+        })
+    }
+
+    save(): void {
+        this.$router.push({
+            path: `/${this.squadron.name ?? 'New squadron'}/${this.squadron.faction ?? Faction.unknown}/${this.squadron.aircraftId?.toString()}`,
+            query: {
+                element: this.squadron.elements.map((e) => [e.name, ...e.pilots.map((p) => p.pilotId)].toString())
+            }
+        })
     }
 }

@@ -2,6 +2,7 @@
     <li class="squadron-element">
         <div class="squadron-element__header">
             <editable-element tag="h3"
+                              :key="squadronElement.name"
                               class="squadron-element__title"
                               :content="squadronElement.name"
                               @update="squadronElement.name = $event"></editable-element>
