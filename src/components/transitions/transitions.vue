@@ -3,7 +3,7 @@
                 :name="transitionName"
                 :appear="appear"
                 :mode="mode"
-                tag="div"
+                :tag="tag"
                 :enter-class="transitionName + '--enter'"
                 :enter-active-class="transitionName + '--enter-active'"
                 :enter-to-class="transitionName + '--enter-to'"

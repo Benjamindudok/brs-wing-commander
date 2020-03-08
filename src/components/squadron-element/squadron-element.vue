@@ -1,8 +1,8 @@
 <template>
-    <li class="squadron-element">
+    <div class="squadron-element">
         <div class="squadron-element__header">
             <editable-element tag="h3"
-                              :key="squadronElement.name"
+                              :key="squadronElement.id"
                               class="squadron-element__title"
                               :content="squadronElement.name"
                               @update="squadronElement.name = $event"></editable-element>
@@ -16,17 +16,16 @@
         </div>
 
 
-        <ul class="squadron-element__pilots">
-            <brs-transition transition-name="slide-from-left" :appear="true" :group="true">
-                <squadron-pilot v-for="pilot in squadronElement.pilots"
-                                :key="pilot.id"
-                                :pilot="pilot"
-                                :aircraft-name="aircraftName"
-                                :aircraft-points="aircraftPoints"
-                                @remove="removePilot"></squadron-pilot>
-            </brs-transition>
-        </ul>
-    </li>
+        <brs-transition tag="ul" class="squadron-element__pilots" transition-name="slide-from-left" :appear="true"
+                        :group="true">
+            <squadron-pilot v-for="pilot in squadronElement.pilots"
+                            :key="pilot.id"
+                            :pilot="pilot"
+                            :aircraft-name="aircraftName"
+                            :aircraft-points="aircraftPoints"
+                            @remove="removePilot"></squadron-pilot>
+        </brs-transition>
+    </div>
 </template>
 
 <script lang="ts" src="./squadron-element.ts"></script>

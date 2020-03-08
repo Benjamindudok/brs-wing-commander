@@ -15,6 +15,9 @@ export default class Transitions extends Vue
     @Prop()
     public group!: boolean;
 
+    @Prop({ default: 'div' })
+    public tag!: string;
+
     get type(): string
     {
         return (this.group) ? 'transition-group' : 'transition';

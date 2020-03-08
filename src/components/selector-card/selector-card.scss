@@ -4,8 +4,10 @@
   align-items: center;
   cursor: pointer;
   display: flex;
+  min-height: 78px;
   justify-content: space-around;
   margin: 5px;
+  width: 78px;
 
   &__input {
     display: none;
@@ -17,7 +19,7 @@
     }
   }
 
-  &__icon {
+  &__content {
     align-items: center;
     background: transparent;
     border: 2px solid var(--color-icon);
@@ -26,11 +28,23 @@
     flex-direction: column;
     font-size: 14px;
     font-weight: 500;
-    height: 120px;
     justify-content: space-around;
-    padding: 20px 0;
+    padding: 5px;
     pointer-events: none;
     text-align: center;
-    width: 120px;
+    width: 78px;
+  }
+
+  &__icon {
+    height: 48px;
+    width: 48px;
+  }
+
+  &__name {
+    font-size: rem-calc(12px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90%;
+    width: 100%;
   }
 }

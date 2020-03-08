@@ -1,5 +1,5 @@
 ﻿<template>
-    <selector-container title="Aircraft">
+    <selector-container class="aircraft-selector" title="Aircraft">
         <selector-card v-for="aircraft in availableAircrafts"
                        :key="aircraft.id"
                        :name="aircraft.name"

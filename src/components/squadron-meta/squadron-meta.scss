@@ -1,11 +1,17 @@
 @import '../../scss/reference';
 
 .squadron-meta {
+  margin: 5px 0 30px;
   order: 1;
 
-  @include respond-to(large) {
-    grid-column: auto / span 6;
+  @include respond-to(xlarge) {
+    grid-column: auto / span 8;
+    margin: 0;
     order: initial;
+  }
+
+  @include respond-to(xxlarge) {
+    grid-column: auto / span 6;
   }
 
   &__list {
@@ -20,11 +26,24 @@
   &__item {
     width: 20%;
     text-align: left;
+
+    &--plane-stats {
+      display: none;
+
+      @include respond-to(xlarge) {
+        display: block;
+      }
+    }
   }
 
   &__value {
+    color: var(--color-shade-light);
     font-size: 3.157rem;
     margin: 0;
+
+    @include respond-to(xlarge) {
+      color: var(--color-shade-dark);
+    }
   }
 
   &__identifier {
@@ -32,6 +51,10 @@
     display: block;
     font-size: rem-calc(14px);
     font-weight: 400;
+
+    @include respond-to(xlarge) {
+      color: var(--color-shade-dark);
+    }
   }
 
   &__suffix {

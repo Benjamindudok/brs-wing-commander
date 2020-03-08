@@ -12,12 +12,16 @@
   flex-direction: column;
   justify-content: center;
   height: 82px;
-  margin: 5px 5px 15px;
+  margin: 6px 3px;
   overflow: hidden;
   padding: 10px 5px;
   position: relative;
   transition: $transition-default;
   width: 82px;
+
+  @include respond-to(xlarge) {
+    margin-bottom: 15px;
+  }
 
   &:hover {
     opacity: 0.8;

@@ -6,32 +6,29 @@
 
                 <main class="squadron">
 
-                    <section class="name">
-                        <editable-element tag="h1"
-                                          :key="squadron.name"
-                                          :content="squadron.name"
-                                          @update="squadron.name = $event"></editable-element>
-                    </section>
+                    <editable-element class="name"
+                                      tag="h1"
+                                      :content="squadron.name"
+                                      @update="squadron.name = $event"></editable-element>
 
                     <div class="actions">
                         <brs-button type="ghost" @click="save()">get shareable link</brs-button>
                     </div>
 
-                    <section class="elements">
-                        <brs-transition transition-name="slide-from-left" :appear="true" :group="true">
-                            <selectable-element v-for="element in squadron.elements"
-                                                :key="element.id"
-                                                :squadron="squadron"
-                                                :aircraft="currentAircraft(aircrafts)"
-                                                :element="element"
-                                                :is-active="selectedElementId === element.id"
-                                                @click.native="selectedElementId = element.id">
-                            </selectable-element>
-                        </brs-transition>
-                        <selectable-element :is-placeholder="true"
+                    <brs-transition class="elements" transition-name="slide-from-left" :appear="true" :group="true">
+                        <selectable-element v-for="element in squadron.elements"
+                                            :key="element.id"
+                                            :squadron="squadron"
+                                            :aircraft="currentAircraft(aircrafts)"
+                                            :element="element"
+                                            :is-active="selectedElementId === element.id"
+                                            @click.native="selectedElementId = element.id">
+                        </selectable-element>
+                        <selectable-element key="add"
+                                            :is-placeholder="true"
                                             @click.native="addElement">
                         </selectable-element>
-                    </section>
+                    </brs-transition>
 
                     <section class="pilots">
                         <squadron-element v-if="currentElement"
@@ -47,13 +44,12 @@
                     <div class="selector-categories">
                         <h3>Configure your squadron</h3>
                         <selector-container>
-                            <selector-card
-                                    :name="selectedFactionId ? $options.filters.factionName(selectedFactionId) : 'Factions'"
-                                    id="factions"
-                                    v-model="selectedCategoryId">
+                            <selector-card name="Factions"
+                                           id="factions"
+                                           v-model="selectedCategoryId">
                                 <div class="placeholder-icon"/>
                             </selector-card>
-                            <selector-card :name="selectedPlaneName ? selectedPlaneName : 'Aircrafts'"
+                            <selector-card name="Aircrafts"
                                            id="aircrafts"
                                            v-model="selectedCategoryId">
                                 <div class="placeholder-icon"/>

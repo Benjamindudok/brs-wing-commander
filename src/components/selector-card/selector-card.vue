@@ -7,9 +7,11 @@
                v-bind="$attrs"
                v-on="$listeners"
                v-model="model"/>
-        <span class="selector-card__icon">
+        <span class="selector-card__content">
+            <span class="selector-card__icon">
             <slot></slot>
-          <span>{{name}}</span>
+            </span>
+          <span  class="selector-card__name">{{name}}</span>
         </span>
     </label>
 </template>
