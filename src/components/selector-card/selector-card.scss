@@ -43,8 +43,8 @@
   &__name {
     font-size: rem-calc(12px);
     overflow: hidden;
-    text-overflow: ellipsis;
     max-width: 90%;
+    text-overflow: ellipsis;
     width: 100%;
   }
 }
