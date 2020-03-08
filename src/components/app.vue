@@ -93,6 +93,11 @@
                     <a class="footer__link" href="https://github.com/Benjamindudok" target="_blank">Benjamin Dudok</a>
                 </footer>
             </div>
+            <div v-else class="app app--loading">
+                <div class="loader">
+                    <span class="loader__text">fetching data...</span>
+                </div>
+            </div>
         </brs-transition>
     </google-spreadsheet-data-provider>
 </template>

@@ -28,6 +28,47 @@
     transition: $transition-default;
     z-index: -1;
   }
+
+  &--loading {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.loader {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  &::before {
+    animation: loader-rotate 1s linear infinite;
+    border: 5px solid transparent;
+    border-top-color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+    border-radius: 50%;
+    content: '';
+    height: 56px;
+    width: 56px;
+  }
+
+  &__text {
+    color: var(--color-primary);
+    font-size: rem-calc(16);
+    font-weight: 700;
+    margin-top: 15px;
+  }
+}
+
+@keyframes loader-rotate {
+  0% {
+    transform: rotate(0); }
+  100% {
+    transform: rotate(360deg); }
 }
 
 .navbar,
