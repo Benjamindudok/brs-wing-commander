@@ -63,7 +63,7 @@
                     </div>
 
                     <div class="selector-items">
-                        <brs-transition transition-name="slide-from-down" :appear="true" mode="out-in">
+<!--                        <brs-transition transition-name="slide-from-down" :appear="true" mode="out-in">-->
                             <faction-selector v-if="selectedCategoryId === 'factions'"
                                               :squadron="squadron"></faction-selector>
 
@@ -77,7 +77,7 @@
                                             :squadron="squadron"
                                             :pilots="pilots"
                                             @select-pilot="addPilot($event)"></pilot-selector>
-                        </brs-transition>
+<!--                        </brs-transition>-->
                     </div>
 
 

@@ -9,9 +9,20 @@
     }
 
     &__items {
-        display: flex;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        margin: -5px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 88px);
+        margin: 5px -5px;
+
+        @include respond-to(medium) {
+            grid-template-columns: repeat(auto-fill, 120px);
+        }
+
+        @include respond-to(xlarge) {
+            grid-template-columns: repeat(auto-fill, 110px);
+        }
+
+        @include respond-to(xlarge) {
+            grid-template-columns: repeat(auto-fill, 140px);
+        }
     }
 }

@@ -8,7 +8,6 @@
   justify-content: space-between;
   flex-direction: column;
   margin: 0 -10px;
-  max-width: 768px;
   padding: 20px 0;
   text-align: left;
   width: calc(100% + 20px);
@@ -16,7 +15,8 @@
   @include respond-to(xlarge) {
     background: transparent;
     margin: 0;
-    padding: 0;
+    max-width: 768px;
+    padding: 0 30px;
     width: 100%;
   }
 
@@ -36,7 +36,7 @@
     width: 100%;
 
     @include respond-to(xlarge) {
-      color: var(--color-shade-light);
+      color: var(--color-shade-dark);
       padding: 0;
     }
   }

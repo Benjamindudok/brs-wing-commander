@@ -7,10 +7,6 @@
   margin: 0 auto;
   padding: 10px;
 
-  @include respond-to(medium) {
-    padding: 20px 40px;
-  }
-
   @include respond-to(xlarge) {
     height: 100vh;
     padding: 20px 100px;
@@ -18,9 +14,9 @@
 
   &::before {
     background: var(--color-background-alternate);
-    bottom: 0;
     content: '';
     display: block;
+    height: 800px;
     left: 0;
     position: absolute;
     right: 0;
@@ -30,6 +26,7 @@
 
     @include respond-to(xlarge) {
       bottom: 0;
+      height: auto;
       left: 0;
       right: 70%;
       top: 0;
@@ -168,6 +165,7 @@
   order: 3;
 
   @include respond-to(xlarge) {
+    flex-direction: column;
     grid-row: auto / span 2;
     order: initial;
     margin: 0;

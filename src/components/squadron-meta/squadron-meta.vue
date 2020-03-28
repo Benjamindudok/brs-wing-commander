@@ -36,4 +36,4 @@
 </template>
 
 <script lang="ts" src="./squadron-meta.ts"></script>
-<style scoped lang="scss" src="./squadron-meta.scss"></style>
+<style lang="scss" src="./squadron-meta.scss"></style>

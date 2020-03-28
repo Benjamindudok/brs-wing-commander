@@ -38,6 +38,8 @@
 
   &__value {
     color: var(--color-shade-light);
+    display: flex;
+    flex-direction: column;
     font-size: 3.157rem;
     margin: 0;
 
